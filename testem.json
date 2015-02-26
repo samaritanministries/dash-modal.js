@@ -1,0 +1,14 @@
+{
+  "framework": "jasmine2",
+  "before_tests": "grunt build:spec",
+  "src_files": [
+    "scripts/bower_components/jquery/dist/jquery.js",
+    "scripts/bower_components/underscore/underscore.js",
+    "scripts/bower_components/backbone/backbone.js",
+    "scripts/bower_components/jasmine-jquery/lib/jasmine-jquery.js",
+    "scripts/namespace.js",
+    ".tmp/scripts/dash-modal/templates.js",
+    ".tmp/scripts/dash-modal/view.js",
+    ".tmp/spec/**/*.js"
+  ]
+}
