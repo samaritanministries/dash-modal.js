@@ -1,6 +1,5 @@
 node_modules
-js/scripts/bower_components
+scripts/bower_components
 .editorconfig
-.jshintrc
 .gitattributes
 .tmp

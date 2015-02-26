@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     //Tasks in alphabetical order
     //********************************
 
-    clean: ['.tmp', 'dist'],
+    clean: ['.tmp/*', 'dist/*'],
 
     coffee: {
       src: {
