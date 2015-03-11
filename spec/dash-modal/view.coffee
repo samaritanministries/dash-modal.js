@@ -10,12 +10,13 @@ describe 'DashModal.View', ->
     _v =  new TestView({template: template})
     _v
 
-  modal = (view, modalSize, shouldAllowClose, onCloseCallback, router = new Backbone.Router()) ->
+  modal = (view, modalSize, shouldAllowClose, closeOnEscape, onCloseCallback, router = new Backbone.Router()) ->
     _m = new DashModal.View
       view: view
       modalSize: modalSize
       shouldAllowClose: shouldAllowClose
       onCloseCallback: onCloseCallback
+      closeOnEscape: closeOnEscape
       router: router
     _m
 
@@ -136,7 +137,7 @@ describe 'DashModal.View', ->
   it 'takes an onCloseCallback and calls it on close click', ->
     template = '<div>Hello</div>'
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modal(view(template), 'test', true, callback).show()
+    _m = modal(view(template), 'test', true, false, callback).show()
 
     _m.$('[data-id=close]').click()
 
@@ -145,8 +146,42 @@ describe 'DashModal.View', ->
   it 'also calls it on overlay click', ->
     template = '<div>Hello</div>'
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modal(view(template), 'test', true, callback).show()
+    _m = modal(view(template), 'test', true, false, callback).show()
 
     _m.$('[data-id=modal]').click()
 
     expect(callback).toHaveBeenCalled()
+
+  describe "Listening for key events", ->
+
+    pressEscape = () ->
+      event = jQuery.Event('keyup')
+      enterKeyCode = DashModal.EscapeKeyUp.ESCAPE_KEY_CODE
+      event.keyCode = enterKeyCode
+      $(document).trigger(event)
+
+    it 'closes on ESC', ->
+      template = '<div>Hello</div>'
+      _m = modal(view(template), 'test', true, true).show()
+
+      pressEscape()
+
+      assertHidden(_m)
+
+    it 'removes the listener on hide', ->
+      template = '<div>Hello</div>'
+      _m = modal(view(template), 'test', true, true).show()
+
+      removeListenersSpy = spyOn(_m.escapeKeyUp, "removeListeners")
+
+      pressEscape()
+
+      expect(removeListenersSpy).toHaveBeenCalled()
+
+    it 'does not close on escape when configured not to', ->
+      template = '<div>Hello</div>'
+      _m = modal(view(template), 'test', true, false).show()
+
+      pressEscape()
+
+      assertVisible(_m)
