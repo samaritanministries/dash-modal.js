@@ -1,6 +1,13 @@
 #dash-modal.js
 ####This is the modal for the Dash platform.
 
+# Releasing a New Version
+
+Steps to release a new version:
+
+1. Update the [change log](/CHANGELOG.md).
+2. Run `./bower_deploy.sh`
+
 #Setup
 * install node/npm
 * npm install
