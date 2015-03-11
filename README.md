@@ -30,6 +30,7 @@ new DashModal({
 	view: new SomeBackboneView(),
 	modalSize: 'a-class-to-set-size',
 	shouldAllowClose: true or false,
+	shouldCloseOnEscape: true or false,
 	onCloseCallback: function(){executes after close happens}
 }).show()
 ```

@@ -75,6 +75,8 @@ module.exports = function (grunt) {
           'dist/dash-modal.min.js': [
             '.tmp/scripts/namespace.js',
             '.tmp/scripts/dash-modal/templates.js',
+            '.tmp/scripts/dash-modal/escape_key_up.js',
+            '.tmp/scripts/dash-modal/null_escape_key_up.js',
             '.tmp/scripts/dash-modal/view.js'
           ]
         }

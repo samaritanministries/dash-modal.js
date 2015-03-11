@@ -10,13 +10,13 @@ describe 'DashModal.View', ->
     _v =  new TestView({template: template})
     _v
 
-  modal = (view, modalSize, shouldAllowClose, closeOnEscape, onCloseCallback, router = new Backbone.Router()) ->
+  modal = (view, modalSize, shouldAllowClose, shouldCloseOnEscape, onCloseCallback, router = new Backbone.Router()) ->
     _m = new DashModal.View
       view: view
       modalSize: modalSize
       shouldAllowClose: shouldAllowClose
       onCloseCallback: onCloseCallback
-      closeOnEscape: closeOnEscape
+      shouldCloseOnEscape: shouldCloseOnEscape
       router: router
     _m
 

@@ -12,6 +12,7 @@ class SampleApp.ShowModal extends Backbone.View
       view: new SampleApp.ModalView
       onCloseCallback: @onClose
       shouldAllowClose: @options.shouldAllowClose
+      shouldCloseOnEscape: @options.shouldCloseOnEscape
     modal.show()
 
   onClose: ->

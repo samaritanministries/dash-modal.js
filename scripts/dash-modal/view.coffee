@@ -5,6 +5,7 @@ class DashModal.View extends Backbone.View
 
   initialize: (@options) ->
     @view = @options.view
+    @escapeKeyUp = @buildEscapeKeyUp()
 
   events:
     'click [data-id=modal-inner]' : 'stopPropagation'
@@ -19,6 +20,7 @@ class DashModal.View extends Backbone.View
       @hide()
 
   show: ->
+    @escapeKeyUp.respondWith(@hide)
     @$el.html(@template({ modalSize: @options.modalSize }))
     @removeCloseButton() unless @options.shouldAllowClose
     @listenTo(@view, 'hideModal', @hide)
@@ -28,7 +30,8 @@ class DashModal.View extends Backbone.View
     $('[data-id=modal-container]').html(@el)
     @
 
-  hide: ->
+  hide: =>
+    @escapeKeyUp.removeListeners()
     @options.onCloseCallback?()
     @$('[data-id=modal]').removeClass('in')
     setTimeout( => @$el.hide()
@@ -40,3 +43,9 @@ class DashModal.View extends Backbone.View
 
   removeCloseButton: ->
     @$('[data-id=close]').remove()
+
+  buildEscapeKeyUp: ->
+    if @options.shouldCloseOnEscape
+      new DashModal.EscapeKeyUp()
+    else
+      new DashModal.NullEscapeKeyUp()
