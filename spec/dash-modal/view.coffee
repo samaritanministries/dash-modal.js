@@ -95,7 +95,7 @@ describe 'DashModal.View', ->
     _m.$('[data-id=modal]').trigger('click')
     assertHidden(_m)
 
-  it 'does NOT hide when .modal is clicked when shouldAllowClose is undefined', ->
+  it 'does NOT hide when .dash-modal is clicked when shouldAllowClose is undefined', ->
     template = '<div>Hello</div>'
     _m = modal(view(template), 'test').show()
 

@@ -11,7 +11,7 @@ $tablet: "all and (min-width: 40em)" !default;
 
 .prevent-scrolling { overflow: hidden; }
 
-.modal {
+.dash-modal {
   -webkit-overflow-scrolling: touch;
   background: rgba(31,31,35, .85);
   bottom: 0;
@@ -24,19 +24,19 @@ $tablet: "all and (min-width: 40em)" !default;
   top: 0;
   z-index: 1050;
 
-  .modal-table {
+  .dash-modal-table {
     width: 100%;
     height: 100%;
     display: table;
   }
 
-  .modal-dialog {
+  .dash-modal-dialog {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
   }
 
-  .modal-inner {
+  .dash-modal-inner {
     background-clip: padding-box;
     background-color: $white;
     border-radius: 15px;
@@ -61,7 +61,7 @@ $tablet: "all and (min-width: 40em)" !default;
 
   &.narrow {
     @media #{$tablet} {
-      .modal-inner { width: 26rem; }
+      .dash-modal-inner { width: 26rem; }
     }
   }
 
@@ -122,12 +122,12 @@ $tablet: "all and (min-width: 40em)" !default;
   }
 }
 
-.modal-title {
+.dash-modal-title {
   margin-bottom: 1em;
   text-align: center;
 }
 
-.modal-row {
+.dash-modal-row {
   margin-bottom: 1.5em;
 }
 
