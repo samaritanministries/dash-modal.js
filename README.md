@@ -19,5 +19,10 @@ Run ```testem```
 
 For more documentation, visit our [documentation site](http://developers.samaritanministries.org/developers/dash-modal.js/)
 
+#Running the sample
+
+1. `grunt build:dist`
+1. `open app/index.html`
+
 #License
 MIT License
