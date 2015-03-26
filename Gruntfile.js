@@ -108,6 +108,7 @@ module.exports = function (grunt) {
                      'clean:tmp',
                      'jst',
                      'coffee:src',
+                     'sass',
                      'coffee:spec'
   ]);
 
