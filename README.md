@@ -1,4 +1,6 @@
 #dash-modal.js
+[![Build Status](https://travis-ci.org/samaritanministries/dash-modal.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-modal.js)
+
 ####This is the modal for the Dash platform.
 
 # Releasing a New Version

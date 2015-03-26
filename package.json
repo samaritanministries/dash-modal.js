@@ -1,6 +1,10 @@
 {
   "name": "dash-modal.js",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com:samaritanministries/dash-modal.js.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt":                "~0.4.1",
@@ -10,7 +14,12 @@
     "grunt-contrib-jst":    "~0.6.0",
     "grunt-sass":           "~0.18.1",
     "grunt-contrib-uglify": "~0.2.0",
-    "load-grunt-tasks":     "~0.1.0"
+    "load-grunt-tasks":     "~0.1.0",
+    "phantomjs":            "~1.9.16",
+    "testem":               "~0.7.6"
+  },
+  "scripts": {
+    "test": "testem ci"
   },
   "engines": {
     "node": ">=0.8.0"
