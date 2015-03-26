@@ -7,7 +7,10 @@ module.exports = function (grunt) {
     //Tasks in alphabetical order
     //********************************
 
-    clean: ['.tmp/*', 'dist/*'],
+    clean: {
+      tmp: ['.tmp/*'],
+      dist: ['dist/*']
+    },
 
     coffee: {
       src: {
@@ -89,7 +92,8 @@ module.exports = function (grunt) {
   //********************************
 
   grunt.registerTask('build:dist', [
-                     'clean',
+                     'clean:tmp',
+                     'clean:dist',
                      'jst',
                      'coffee:src',
                      'sass',
@@ -101,7 +105,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build:spec', [
-                     'clean',
+                     'clean:tmp',
                      'jst',
                      'coffee:src',
                      'coffee:spec'
