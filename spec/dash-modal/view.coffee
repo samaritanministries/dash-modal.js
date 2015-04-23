@@ -10,13 +10,10 @@ describe 'DashModal.View', ->
     _v =  new TestView({template: template})
     _v
 
-  modal = (view, modalSize, shouldAllowClose, shouldCloseOnEscape, onCloseCallback, router = new Backbone.Router()) ->
+  modal = (view, modalSize, router = new Backbone.Router()) ->
     _m = new DashModal.View
       view: view
       modalSize: modalSize
-      shouldAllowClose: shouldAllowClose
-      onCloseCallback: onCloseCallback
-      shouldCloseOnEscape: shouldCloseOnEscape
       router: router
     _m
 
@@ -86,18 +83,26 @@ describe 'DashModal.View', ->
     _m.show()
     expect(_m.isVisible()).toBeTruthy()
 
-  it 'hides when .modal is clicked when shouldAllowClose is true', ->
-    template = '<div>Hello</div>'
-    _m = modal(view(template), 'test', true).show()
+  it 'hides when the overlay (.modal) is clicked when shouldCloseOnOverlay is true', ->
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      shouldCloseOnOverlay: true
+      router: "router"
+    _m.show()
 
     assertVisible(_m)
 
     _m.$('[data-id=modal]').trigger('click')
+
     assertHidden(_m)
 
-  it 'does NOT hide when .dash-modal is clicked when shouldAllowClose is undefined', ->
-    template = '<div>Hello</div>'
-    _m = modal(view(template), 'test').show()
+  it 'does NOT hide when overlay (.modal) is clicked when shouldCloseOnOverlay is undefined', ->
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      router: "router"
+    _m.show()
 
     assertVisible(_m)
 
@@ -118,9 +123,13 @@ describe 'DashModal.View', ->
     _m = modal(view(template), 'test-size').show()
     expect(_m.$('[data-id=modal]')).toBeMatchedBy('.test-size')
 
-  it 'when shouldAllowClose is passed in, "X" button to click is available to close', ->
-    template = '<div>Hello</div>'
-    _m = modal(view(template), 'test', true).show()
+  it 'when shouldCloseOnX is true, "X" button to click is available to close', ->
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      shouldCloseOnX: true
+      router: "router"
+    _m.show()
 
     assertVisible(_m)
 
@@ -128,25 +137,40 @@ describe 'DashModal.View', ->
 
     assertHidden(_m)
 
-  it 'removes "X", when shouldAllowClose is false', ->
-    template = '<div>Hello</div>'
-    _m = modal(view(template), 'test', false).show()
+  it 'removes "X", when shouldCloseOnX is false', ->
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      shouldCloseOnX: false
+      router: "router"
+    _m.show()
 
     expect(_m.$('[data-id=close]')).not.toExist()
 
   it 'takes an onCloseCallback and calls it on close click', ->
-    template = '<div>Hello</div>'
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modal(view(template), 'test', true, false, callback).show()
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      shouldCloseOnX: true
+      router: "router"
+      onCloseCallback: callback
+    _m.show()
+
 
     _m.$('[data-id=close]').click()
 
     expect(callback).toHaveBeenCalled()
 
   it 'also calls it on overlay click', ->
-    template = '<div>Hello</div>'
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modal(view(template), 'test', true, false, callback).show()
+    _m = new DashModal.View
+      view: view()
+      modalSize: 'modalSize'
+      shouldCloseOnOverlay: true
+      router: "router"
+      onCloseCallback: callback
+    _m.show()
 
     _m.$('[data-id=modal]').click()
 
@@ -161,16 +185,24 @@ describe 'DashModal.View', ->
       $(document).trigger(event)
 
     it 'closes on ESC', ->
-      template = '<div>Hello</div>'
-      _m = modal(view(template), 'test', true, true).show()
+      _m = new DashModal.View
+        view: view()
+        modalSize: 'modalSize'
+        shouldCloseOnEscape: true
+        router: "router"
+      _m.show()
 
       pressEscape()
 
       assertHidden(_m)
 
     it 'removes the listener on hide', ->
-      template = '<div>Hello</div>'
-      _m = modal(view(template), 'test', true, true).show()
+      _m = new DashModal.View
+        view: view()
+        modalSize: 'modalSize'
+        shouldCloseOnEscape: true
+        router: "router"
+      _m.show()
 
       removeListenersSpy = spyOn(_m.escapeKeyUp, "removeListeners")
 
@@ -179,8 +211,12 @@ describe 'DashModal.View', ->
       expect(removeListenersSpy).toHaveBeenCalled()
 
     it 'does not close on escape when configured not to', ->
-      template = '<div>Hello</div>'
-      _m = modal(view(template), 'test', true, false).show()
+      _m = new DashModal.View
+        view: view()
+        modalSize: 'modalSize'
+        shouldCloseOnEscape: false
+        router: "router"
+      _m.show()
 
       pressEscape()
 

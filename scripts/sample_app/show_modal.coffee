@@ -11,8 +11,9 @@ class SampleApp.ShowModal extends Backbone.View
     modal = new DashModal.View
       view: new SampleApp.ModalView
       onCloseCallback: @onClose
-      shouldAllowClose: @options.shouldAllowClose
+      shouldCloseOnX: @options.shouldCloseOnX
       shouldCloseOnEscape: @options.shouldCloseOnEscape
+      shouldCloseOnOverlay: @options.shouldCloseOnOverlay
     modal.show()
 
   onClose: ->
