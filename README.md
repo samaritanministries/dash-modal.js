@@ -23,7 +23,7 @@ For more documentation, visit our [documentation site](http://developers.samarit
 
 #Running the sample
 
-1. run `testem`
+1. `grunt build:dist`
 1. `open app/index.html`
 
 #License

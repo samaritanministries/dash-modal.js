@@ -16,13 +16,12 @@ class DashModal.View extends Backbone.View
     event.stopPropagation()
 
   outerCountainerClick: ->
-    if @options.shouldAllowClose
-      @hide()
+    @hide() if @options.shouldCloseOnOverlay
 
   show: ->
     @escapeKeyUp.respondWith(@hide)
     @$el.html(@template({ modalSize: @options.modalSize }))
-    @removeCloseButton() unless @options.shouldAllowClose
+    @removeCloseButton() unless @options.hasXButton
     @listenTo(@view, 'hideModal', @hide)
     @$('[data-id=view-container]').html(@view.render().$el)
     $('body').addClass('prevent-scrolling')

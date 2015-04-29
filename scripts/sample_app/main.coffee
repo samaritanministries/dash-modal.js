@@ -1,10 +1,18 @@
 $ ->
   new SampleApp.ShowModal
     el: $("[data-id=show-modal-container-one]")
-    shouldAllowClose: true
-    shouldCloseOnEscape: false
+    hasXButton: true
 
   new SampleApp.ShowModal
     el: $("[data-id=show-modal-container-two]")
-    shouldAllowClose: true
+    shouldCloseOnOverlay: true
+
+  new SampleApp.ShowModal
+    el: $("[data-id=show-modal-container-three]")
     shouldCloseOnEscape: true
+
+  new SampleApp.ShowModal
+    el: $("[data-id=show-modal-container-four]")
+    shouldCloseOnEscape: true
+    shouldCloseOnOverlay: true
+    hasXButton: true
