@@ -1,7 +1,7 @@
 $ ->
   new SampleApp.ShowModal
     el: $("[data-id=show-modal-container-one]")
-    shouldCloseOnX: true
+    hasXButton: true
 
   new SampleApp.ShowModal
     el: $("[data-id=show-modal-container-two]")
@@ -15,4 +15,4 @@ $ ->
     el: $("[data-id=show-modal-container-four]")
     shouldCloseOnEscape: true
     shouldCloseOnOverlay: true
-    shouldCloseOnX: true
+    hasXButton: true

@@ -12,7 +12,7 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 
 ### Added
 
-  * `shouldCloseOnX` option to DashModal.View
+  * `hasXButton` option to DashModal.View
   * `shouldCloseOnOverlay` option to DashModal.View
 
 ### Removed
