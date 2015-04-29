@@ -10,11 +10,15 @@ describe 'DashModal.View', ->
     _v =  new TestView({template: template})
     _v
 
-  modal = (view, modalSize, router = new Backbone.Router()) ->
+  modalView = (options) ->
     _m = new DashModal.View
-      view: view
-      modalSize: modalSize
-      router: router
+      view:                 options.view ?= view()
+      modalSize:            options.modalSize ?= 'modalSize'
+      hasXButton:           options.hasXButton
+      onCloseCallback:      options.onCloseCallback
+      shouldCloseOnOverlay: options.shouldCloseOnOverlay
+      shouldCloseOnEscape:  options.shouldCloseOnEscape
+      router:               options.router ?= new Backbone.Router()
     _m
 
   assertHidden = (_modal) ->
@@ -32,18 +36,18 @@ describe 'DashModal.View', ->
     template = '<div>Hello</div>'
     modalHtml = '<div data-id="view-container"><div><div>Hello</div></div></div>'
 
-    modal(view(template)).show()
+    modalView(view: view(template)).show()
 
     expect($('[data-id=modal-container]').html()).toContain(modalHtml)
 
   it 'is visible on show', ->
     template = '<div>Hello</div>'
-    _m = modal(view(template)).show()
+    _m = modalView(view: view(template)).show()
     assertVisible(_m)
 
   it 'can hide itself', ->
     template = '<div>Hello</div>'
-    _m = modal(view(template)).show()
+    _m = modalView(view: view(template)).show()
 
     assertVisible(_m)
     _m.hide()
@@ -51,7 +55,7 @@ describe 'DashModal.View', ->
 
   it 'can remove itself', ->
     template = '<div>Hello</div>'
-    _m = modal(view(template)).show()
+    _m = modalView(view: view(template)).show()
 
     assertVisible(_m)
     _m.remove()
@@ -60,7 +64,7 @@ describe 'DashModal.View', ->
   it 'sets up a listener for hiding on the passed in view', ->
     template = '<div>Hello</div>'
     _v = view(template)
-    _m = modal(_v).show()
+    _m = modalView(view: _v).show()
 
     assertVisible(_m)
     _v.trigger('hideModal')
@@ -69,14 +73,14 @@ describe 'DashModal.View', ->
   it 'knows when it is visible', ->
     template = '<div>Hello</div>'
     _v = view(template)
-    _m = modal(_v).show()
+    _m = modalView(view: _v).show()
 
     expect(_m.isVisible()).toBeTruthy()
 
   it 'knows when it is not visible', ->
     template = '<div>Hello</div>'
     _v = view(template)
-    _m = modal(_v).show()
+    _m = modalView(view: _v).show()
     _m.hide()
 
     expect(_m.isVisible()).toBeFalsy()
@@ -84,11 +88,8 @@ describe 'DashModal.View', ->
     expect(_m.isVisible()).toBeTruthy()
 
   it 'hides when the overlay (.modal) is clicked when shouldCloseOnOverlay is true', ->
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
+    _m = modalView
       shouldCloseOnOverlay: true
-      router: "router"
     _m.show()
 
     assertVisible(_m)
@@ -98,9 +99,7 @@ describe 'DashModal.View', ->
     assertHidden(_m)
 
   it 'does NOT hide when overlay (.modal) is clicked when shouldCloseOnOverlay is undefined', ->
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
+    _m = modalView
       router: "router"
     _m.show()
 
@@ -111,7 +110,7 @@ describe 'DashModal.View', ->
 
   it 'does NOT hide when .modal-inner is clicked', ->
     template = '<div>Hello</div>'
-    _m = modal(view(template)).show()
+    _m = modalView(view: view(template)).show()
 
     assertVisible(_m)
 
@@ -120,15 +119,12 @@ describe 'DashModal.View', ->
 
   it 'renders appends the view modalSize class to modal container', ->
     template = '<div>Good Bye</div>'
-    _m = modal(view(template), 'test-size').show()
+    _m = modalView(view: view(template), modalSize: 'test-size').show()
     expect(_m.$('[data-id=modal]')).toBeMatchedBy('.test-size')
 
-  it 'when shouldCloseOnX is true, "X" button to click is available to close', ->
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
-      shouldCloseOnX: true
-      router: "router"
+  it 'when hasXButton is true, "X" button to click is available to close', ->
+    _m = modalView
+      hasXButton: true
     _m.show()
 
     assertVisible(_m)
@@ -137,23 +133,17 @@ describe 'DashModal.View', ->
 
     assertHidden(_m)
 
-  it 'removes "X", when shouldCloseOnX is false', ->
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
-      shouldCloseOnX: false
-      router: "router"
+  it 'removes "X", when hasXButton is false', ->
+    _m = modalView
+      hasXButton: false
     _m.show()
 
     expect(_m.$('[data-id=close]')).not.toExist()
 
   it 'takes an onCloseCallback and calls it on close click', ->
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
-      shouldCloseOnX: true
-      router: "router"
+    _m = modalView
+      hasXButton: true
       onCloseCallback: callback
     _m.show()
 
@@ -164,11 +154,8 @@ describe 'DashModal.View', ->
 
   it 'also calls it on overlay click', ->
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = new DashModal.View
-      view: view()
-      modalSize: 'modalSize'
+    _m = modalView
       shouldCloseOnOverlay: true
-      router: "router"
       onCloseCallback: callback
     _m.show()
 
@@ -185,11 +172,8 @@ describe 'DashModal.View', ->
       $(document).trigger(event)
 
     it 'closes on ESC', ->
-      _m = new DashModal.View
-        view: view()
-        modalSize: 'modalSize'
+      _m = modalView
         shouldCloseOnEscape: true
-        router: "router"
       _m.show()
 
       pressEscape()
@@ -197,13 +181,9 @@ describe 'DashModal.View', ->
       assertHidden(_m)
 
     it 'removes the listener on hide', ->
-      _m = new DashModal.View
-        view: view()
-        modalSize: 'modalSize'
+      _m = modalView
         shouldCloseOnEscape: true
-        router: "router"
       _m.show()
-
       removeListenersSpy = spyOn(_m.escapeKeyUp, "removeListeners")
 
       pressEscape()
@@ -211,11 +191,8 @@ describe 'DashModal.View', ->
       expect(removeListenersSpy).toHaveBeenCalled()
 
     it 'does not close on escape when configured not to', ->
-      _m = new DashModal.View
-        view: view()
-        modalSize: 'modalSize'
+      _m = modalView
         shouldCloseOnEscape: false
-        router: "router"
       _m.show()
 
       pressEscape()

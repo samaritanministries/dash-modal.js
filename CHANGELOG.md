@@ -8,7 +8,7 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 
  * `shouldCloseOnEscape` option to DashModal.View
 
-## [0.2.0] - 2015-04-23
+## [1.0.0] - 2015-04-23
 
 ### Added
 
