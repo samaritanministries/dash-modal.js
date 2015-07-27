@@ -6,6 +6,7 @@ class DashModal.View extends Backbone.View
   initialize: (@options) ->
     @view = @options.view
     @escapeKeyUp = @buildEscapeKeyUp()
+    @container = @options.container ? $('[data-id=modal-container]')
 
   events:
     'click [data-id=modal-inner]' : 'stopPropagation'
@@ -26,7 +27,7 @@ class DashModal.View extends Backbone.View
     @$('[data-id=view-container]').html(@view.render().$el)
     $('body').addClass('prevent-scrolling')
     @$('[data-id=modal]').addClass('in')
-    $('[data-id=modal-container]').html(@el)
+    @container.html(@el)
     @
 
   hide: =>

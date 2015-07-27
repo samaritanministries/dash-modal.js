@@ -16,3 +16,8 @@ $ ->
     shouldCloseOnEscape: true
     shouldCloseOnOverlay: true
     hasXButton: true
+
+  new SampleApp.ShowModal
+    el: $("[data-id=show-modal-container-five]")
+    hasXButton: true
+    container: $('[data-id=custom-modal-container]')

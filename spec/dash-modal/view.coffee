@@ -122,6 +122,21 @@ describe 'DashModal.View', ->
     _m = modalView(view: view(template), modalSize: 'test-size').show()
     expect(_m.$('[data-id=modal]')).toBeMatchedBy('.test-size')
 
+  it 'renders the view to a custom modal container', ->
+    setFixtures('<div data-id=custom-modal-container></div>')
+    template = '<div>Hello</div>'
+    modalHtml = '<div data-id="view-container"><div><div>Hello</div></div></div>'
+
+    _m = new DashModal.View
+      view:                 view(template)
+      modalSize:            'modalSize'
+      router:               new Backbone.Router()
+      container:            $('[data-id=custom-modal-container]')
+
+    _m.show()
+
+    expect($('[data-id=custom-modal-container]').html()).toContain(modalHtml)
+
   it 'when hasXButton is true, "X" button to click is available to close', ->
     _m = modalView
       hasXButton: true
