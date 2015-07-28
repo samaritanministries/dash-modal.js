@@ -14,6 +14,7 @@ class SampleApp.ShowModal extends Backbone.View
       hasXButton: @options.hasXButton
       shouldCloseOnEscape: @options.shouldCloseOnEscape
       shouldCloseOnOverlay: @options.shouldCloseOnOverlay
+      container: @options.container
     modal.show()
 
   onClose: ->
