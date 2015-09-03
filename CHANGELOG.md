@@ -2,11 +2,14 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
-## [0.1.0] - 2015-03-11
+## [1.1.0] - 2015-09-03
 
 ### Added
 
- * `shouldCloseOnEscape` option to DashModal.View
+  * New Modal Structure. It is now required that all content within a modal use a specific structure:
+    1. For the title of a modal, include `<div class="modal-header"></div>`
+    2. For modal content, use `<div class="modal-content"></div>`
+    2. For the modal footer, use `<div class="modal-footer"></div>`
 
 ## [1.0.0] - 2015-04-23
 
@@ -18,3 +21,9 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 ### Removed
 
   * `shouldAllowClose` option to DashModal.View
+
+## [0.1.0] - 2015-03-11
+
+### Added
+
+ * `shouldCloseOnEscape` option to DashModal.View

@@ -87,25 +87,25 @@ describe 'DashModal.View', ->
     _m.show()
     expect(_m.isVisible()).toBeTruthy()
 
-  it 'hides when the overlay (.modal) is clicked when shouldCloseOnOverlay is true', ->
+  it 'hides when the overlay is clicked when shouldCloseOnOverlay is true', ->
     _m = modalView
       shouldCloseOnOverlay: true
     _m.show()
 
     assertVisible(_m)
 
-    _m.$('[data-id=modal]').trigger('click')
+    _m.$('[data-id=dash-overlay]').trigger('click')
 
     assertHidden(_m)
 
-  it 'does NOT hide when overlay (.modal) is clicked when shouldCloseOnOverlay is undefined', ->
+  it 'does NOT hide when overlay is clicked when shouldCloseOnOverlay is undefined', ->
     _m = modalView
       router: "router"
     _m.show()
 
     assertVisible(_m)
 
-    _m.$('[data-id=modal]').trigger('click')
+    _m.$('[data-id=dash-overlay]').trigger('click')
     assertVisible(_m)
 
   it 'does NOT hide when .modal-inner is clicked', ->
@@ -114,7 +114,7 @@ describe 'DashModal.View', ->
 
     assertVisible(_m)
 
-    _m.$('[data-id=modal-inner]').trigger('click')
+    _m.$('[data-id=modal]').trigger('click')
     assertVisible(_m)
 
   it 'renders appends the view modalSize class to modal container', ->
@@ -174,7 +174,7 @@ describe 'DashModal.View', ->
       onCloseCallback: callback
     _m.show()
 
-    _m.$('[data-id=modal]').click()
+    _m.$('[data-id=dash-overlay]').click()
 
     expect(callback).toHaveBeenCalled()
 

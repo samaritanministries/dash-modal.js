@@ -9,9 +9,9 @@ class DashModal.View extends Backbone.View
     @container = @options.container ? $('[data-id=modal-container]')
 
   events:
-    'click [data-id=modal-inner]' : 'stopPropagation'
-    'click [data-id=modal]'       : 'outerCountainerClick'
-    'click [data-id=close]'       : 'hide'
+    'click [data-id=modal]'           : 'stopPropagation'
+    'click [data-id=dash-overlay]'    : 'outerCountainerClick'
+    'click [data-id=close]'           : 'hide'
 
   stopPropagation: (event) ->
     event.stopPropagation()
