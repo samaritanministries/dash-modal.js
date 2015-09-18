@@ -28,7 +28,7 @@ Your HTML template should include the following HTML structure:
 ```
   <div class="modal-header"><h2>This is a modal title</h2></div>
   <div class="modal-content"><p>Some really cool modal content!</p></div>
-  <div class="modal-header"><button>Do stuff</button></div>
+  <div class="modal-footer"><button>Do stuff</button></div>
 ```
 
 #Running the sample
