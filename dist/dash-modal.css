@@ -36,7 +36,9 @@
     text-align: center;
     padding: 1rem; }
     .dash-modal .modal-header hr, .dash-modal .modal-content hr, .dash-modal .modal-footer hr {
-      margin: 1rem-1rem; }
+      border: none;
+      border-bottom: 2px solid #E0E0E0;
+      margin: 1rem -1rem; }
   .dash-modal .modal-close {
     -webkit-user-select: none;
     -moz-user-select: none;
