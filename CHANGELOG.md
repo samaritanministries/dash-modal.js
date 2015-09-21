@@ -2,6 +2,11 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.1.1] - 2015-09-21
+
+  * Updated $modal-gutter structure
+  * Added <hr> specific styles
+
 ## [1.1.0] - 2015-09-03
 
 ### Added
