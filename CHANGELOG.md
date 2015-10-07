@@ -2,6 +2,16 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.2.1] - 2015-10-07
+
+### Added
+
+ * Allow a modal to be shown a second time
+
+### Removed
+
+ * Remove 150ms timeout while hiding.
+
 ## [1.2.0] - 2015-10-07
 
 ### Changed

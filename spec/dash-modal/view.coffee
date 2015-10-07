@@ -188,6 +188,17 @@ describe 'DashModal.View', ->
     assertVisible(_m)
     expect($("[data-id=modal-container]").find("[data-id=foo]").val()).toEqual("Udpated")
 
+  it "can be shown a second time", ->
+    setFixtures('<div data-id=modal-container></div>')
+    _view = view('Some Content').render()
+
+    _m = modalView(view: _view)
+    _m.show()
+    _m.hide()
+    _m.show()
+
+    expect(_m.$el).toBeVisible()
+
   describe "Listening for key events", ->
 
     pressEscape = () ->

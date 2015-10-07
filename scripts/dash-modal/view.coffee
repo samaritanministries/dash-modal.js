@@ -28,14 +28,14 @@ class DashModal.View extends Backbone.View
     $('body').addClass('prevent-scrolling')
     @$('[data-id=modal]').addClass('in')
     @container.html(@el)
+    @$el.show()
     @
 
   hide: =>
     @escapeKeyUp.removeListeners()
     @options.onCloseCallback?()
     @$('[data-id=modal]').removeClass('in')
-    setTimeout( => @$el.hide()
-    150)
+    @$el.hide()
     $('body').removeClass('prevent-scrolling')
 
   isVisible: ->
