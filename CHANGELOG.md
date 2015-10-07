@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.2.0] - 2015-10-07
+
+### Changed
+
+ * Do not re-render a view that is already rendered
+
 ## [1.1.1] - 2015-09-21
 
   * Updated $modal-gutter structure
