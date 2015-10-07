@@ -24,7 +24,7 @@ class DashModal.View extends Backbone.View
     @$el.html(@template({ modalSize: @options.modalSize }))
     @removeCloseButton() unless @options.hasXButton
     @listenTo(@view, 'hideModal', @hide)
-    @$('[data-id=view-container]').html(@view.render().$el)
+    @$('[data-id=view-container]').html(@modalHtml())
     $('body').addClass('prevent-scrolling')
     @$('[data-id=modal]').addClass('in')
     @container.html(@el)
@@ -40,6 +40,12 @@ class DashModal.View extends Backbone.View
 
   isVisible: ->
     $('body').attr('class') == 'prevent-scrolling'
+
+  modalHtml: ->
+    if @view.$el.is(":empty")
+      @view.render().$el
+    else
+      @view.$el
 
   removeCloseButton: ->
     @$('[data-id=close]').remove()

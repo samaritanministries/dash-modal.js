@@ -162,7 +162,6 @@ describe 'DashModal.View', ->
       onCloseCallback: callback
     _m.show()
 
-
     _m.$('[data-id=close]').click()
 
     expect(callback).toHaveBeenCalled()
@@ -177,6 +176,17 @@ describe 'DashModal.View', ->
     _m.$('[data-id=dash-overlay]').click()
 
     expect(callback).toHaveBeenCalled()
+
+  it 'does not re-render a view that is already rendered', ->
+    setFixtures('<div data-id=modal-container></div>')
+    template = '<input data-id="foo" type="text" value="Original"/>'
+    viewWithInput = view(template).render()
+    viewWithInput.$("[data-id=foo]").val("Udpated")
+
+    _m = modalView(view: viewWithInput).show()
+
+    assertVisible(_m)
+    expect($("[data-id=modal-container]").find("[data-id=foo]").val()).toEqual("Udpated")
 
   describe "Listening for key events", ->
 
