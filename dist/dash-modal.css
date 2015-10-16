@@ -1,7 +1,224 @@
-/* TODO Refactor this to depend on the core Dash Framework! */
+/* Import dashing-core Libraries
+  ================================================== */
+/*! dashing-core v1.0.0 | MIT License */
+/* Core Variables
+  =========================================================================== */
+/* Core Extendables
+  =========================================================================== */
+.remove-list-style {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.clearfix {
+  overflow: auto; }
+
+/* Core Mixins
+  =========================================================================== */
+/* Core Utility Classes
+  =========================================================================== */
+.hide, .hidden {
+  display: none !important; }
+
+.mobile-hide {
+  display: none; }
+  @media all and (min-width: 40em) {
+    .mobile-hide {
+      display: 'block'; } }
+
+.mobile-hide-inline {
+  display: none; }
+  @media all and (min-width: 40em) {
+    .mobile-hide-inline {
+      display: 'inline'; } }
+
+.tablet-hide {
+  display: none; }
+  @media all and (min-width: 64em) {
+    .tablet-hide {
+      display: 'block'; } }
+
+.tablet-hide-inline {
+  display: none; }
+  @media all and (min-width: 64em) {
+    .tablet-hide-inline {
+      display: 'inline'; } }
+
+.pointer, .selectable {
+  cursor: pointer !important; }
+
+.remove-margin, .no-margin {
+  margin: 0 !important; }
+
+.remove-padding {
+  padding: 0 !important; }
+
+.remove-border {
+  border: none !important; }
+
+.float-left {
+  float: left !important; }
+
+.float-right {
+  float: right !important; }
+
+.float-none {
+  float: none !important; }
+
+.fixed {
+  position: fixed !important; }
+
+.relative {
+  position: relative !important; }
+
+/* Color Scale
+  ================================================== */
+/* Typography Variables
+  =========================================================================== */
+/* Typography Utility Classes
+  =========================================================================== */
+.text-align-center, .center-align {
+  text-align: center !important; }
+
+.text-align-left, .left-align {
+  text-align: left !important; }
+
+.text-align-right, .right-align {
+  text-align: right !important; }
+
+.no-wrap {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.break-word {
+  word-wrap: break-word; }
+
+/* Typography Styles
+  =========================================================================== */
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+body {
+  background-color: #EDEDED;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  margin: 0; }
+
+h1 {
+  font-size: 1.953rem; }
+
+h2 {
+  font-size: 1.563rem; }
+
+h3 {
+  font-size: 1.25rem; }
+
+h4 {
+  font-size: 1rem; }
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: #6A8DD3; }
+  a:hover, a:focus {
+    color: #84A7ED; }
+
+p {
+  color: #222222;
+  line-height: 1.25rem; }
+
+/* Actions Variables
+  =========================================================================== */
+/* Actions Extendables
+  =========================================================================== */
+.button, button, input[type='submit'], input[type='reset'], .action {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+/* Actions Mixins
+  =========================================================================== */
+/* Actions Styles
+  =========================================================================== */
+.button, button, input[type='submit'], input[type='reset'] {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+  background-color: #6A8DD3;
+  color: #FFFFFF;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: auto;
+  display: block;
+  font-weight: 400;
+  padding: 0.8rem 1rem;
+  text-align: center; }
+  .button:hover, .button:focus, button:hover, button:focus, input[type='submit']:hover, input[type='submit']:focus, input[type='reset']:hover, input[type='reset']:focus {
+    background-color: #436fc7;
+    color: #FFFFFF; }
+  @media all and (min-width: 40em) {
+    .button, button, input[type='submit'], input[type='reset'] {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      padding-top: 0.4rem; } }
+  .button[disabled], .button.disabled, .button.button-disabled, button[disabled], button.disabled, button.button-disabled, input[type='submit'][disabled], input[type='submit'].disabled, input[type='submit'].button-disabled, input[type='reset'][disabled], input[type='reset'].disabled, input[type='reset'].button-disabled {
+    cursor: default;
+    opacity: 0.4;
+    pointer-events: none; }
+  .button.button-block, button.button-block, input[type='submit'].button-block, input[type='reset'].button-block {
+    display: block !important;
+    width: 100%; }
+  .button.button-large, button.button-large, input[type='submit'].button-large, input[type='reset'].button-large {
+    font-size: 1.25rem !important; }
+  .button.button-primary, button.button-primary, input[type='submit'].button-primary, input[type='reset'].button-primary {
+    background-color: #6A8DD3;
+    color: #FFFFFF; }
+    .button.button-primary:hover, .button.button-primary:focus, button.button-primary:hover, button.button-primary:focus, input[type='submit'].button-primary:hover, input[type='submit'].button-primary:focus, input[type='reset'].button-primary:hover, input[type='reset'].button-primary:focus {
+      background-color: #436fc7;
+      color: #FFFFFF; }
+  .button.button-secondary, button.button-secondary, input[type='submit'].button-secondary, input[type='reset'].button-secondary {
+    background-color: #D4D4D4;
+    color: #222222; }
+    .button.button-secondary:hover, .button.button-secondary:focus, button.button-secondary:hover, button.button-secondary:focus, input[type='submit'].button-secondary:hover, input[type='submit'].button-secondary:focus, input[type='reset'].button-secondary:hover, input[type='reset'].button-secondary:focus {
+      background-color: #bbbbbb;
+      color: #222222; }
+
+.action {
+  color: #6A8DD3; }
+  .action:hover, .action:focus {
+    opacity: 0.6; }
+  .action.action-primary {
+    color: #6A8DD3; }
+    .action.action-primary:hover, .action.action-primary:focus {
+      opacity: 0.6; }
+  .action.action-secondary {
+    color: #6E6E6E; }
+    .action.action-secondary:hover, .action.action-secondary:focus {
+      opacity: 0.6; }
+
 /* Core Modal Styles
   ================================================== */
-.prevent-scrolling, .modal-open {
+.prevent-scrolling {
   overflow: hidden; }
 
 .dash-overlay {
@@ -56,8 +273,6 @@
       color: #878787; }
   .dash-modal .modal-header {
     border-bottom: 2px solid #E0E0E0; }
-    .dash-modal .modal-header h1, .dash-modal .modal-header h2, .dash-modal .modal-header h3, .dash-modal .modal-header h4, .dash-modal .modal-header h5, .dash-modal .modal-header h6 {
-      margin: 0; }
   .dash-modal .modal-content p {
     font-size: 1.25rem;
     margin: 0.5rem;

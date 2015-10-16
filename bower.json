@@ -1,22 +1,23 @@
 {
   "name": "dash-modal.js",
-  "version": "1.2.1",
-  "dependencies": {},
-  "devDependencies": {
-    "backbone" :      "~1.1.2",
-    "jasmine-jquery": "~2.1.0"
-  },
-  "authors": ["smi <smi@8thlight.com>"],
-  "description": "The modal for Dash",
+  "version": "1.3.0",
   "main": "dist/dash-modal.min.js",
-  "keywords": [
-    "dash",
-    "modal"
-  ],
+
+  "homepage": "http://developers.samaritanministries.org/",
+  "description": "A modal component for the Dash Framework",
+
   "license": "MIT",
-  "homepage": "samaritanministries.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/samaritanministries/dash-modal.js.git"
+  },
+
+  "dependencies": {
+    "dashing-core": "1.0.3"
+  },
+
+  "devDependencies": {
+    "backbone" :      "~1.1.2",
+    "jasmine-jquery": "~2.1.0"
   }
 }

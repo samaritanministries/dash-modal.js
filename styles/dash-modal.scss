@@ -1,28 +1,14 @@
-/* TODO Refactor this to depend on the core Dash Framework! */
+/* Import dashing-core Libraries
+  ================================================== */
 
-$white:         #FFFFFF;
-$gray-100:      #EDEDED !default;
-$gray-150:      #E0E0E0 !default;
-$gray-500:      #878787 !default;
-$black:         #000000;
-$medium-size:   1.25rem !default;
-$tablet: "all and (min-width: 40em)" !default;
-
-@mixin user-select($value) {
-  -webkit-user-select: $value;
-  -moz-user-select: $value;
-  -ms-user-select: $value;
-  -o-user-select: $value;
-  user-select: $value;
-}
-
+//@import '../scripts/bower_components/dashing-core/sass/dashing-core';
 
 /* Core Modal Styles
   ================================================== */
 
 $modal-gutter: 1rem !default;
 
-.prevent-scrolling, .modal-open {
+.prevent-scrolling {
   overflow: hidden;
 }
 
@@ -89,15 +75,11 @@ $modal-gutter: 1rem !default;
 
   .modal-header {
     border-bottom: 2px solid $gray-150;
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0;
-    }
   }
 
   .modal-content {
     p {
-      font-size: $medium-size;
+      font-size: $font-size-medium;
       margin: 0.5rem;
       line-height: 1.7rem;
       color: $gray-500;
