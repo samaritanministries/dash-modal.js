@@ -3,3 +3,4 @@ scripts/bower_components
 .editorconfig
 .gitattributes
 .tmp
+.sass-cache/
