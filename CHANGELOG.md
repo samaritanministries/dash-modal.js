@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.3.1] - 2015-10-28
+
+### Added
+
+ * Added ~ to accept patch level changes of dashing-core
+
 ## [1.2.1] - 2015-10-07
 
 ### Added
