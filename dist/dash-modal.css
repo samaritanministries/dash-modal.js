@@ -235,6 +235,7 @@ p {
 
 .dash-modal {
   background-color: #FFFFFF;
+  border-radius: 15px;
   margin: 1.5rem auto;
   max-width: 35rem;
   outline: 0;
