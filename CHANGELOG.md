@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.4.0] - 2015-11-04
+
+### Added
+
+ * Added triggers `showModalComplete` on the passed in view when it is completely visible
+
 ## [1.3.1] - 2015-10-28
 
 ### Added
