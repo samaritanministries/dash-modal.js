@@ -28,7 +28,7 @@ class DashModal.View extends Backbone.View
     $('body').addClass('prevent-scrolling')
     @$('[data-id=modal]').addClass('in')
     @container.html(@el)
-    @$el.show()
+    @$el.show(=> @view.trigger('showModalComplete'))
     @
 
   hide: =>
