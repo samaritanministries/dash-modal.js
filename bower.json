@@ -1,6 +1,6 @@
 {
   "name": "dash-modal.js",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "dist/dash-modal.min.js",
 
   "homepage": "http://developers.samaritanministries.org/",
@@ -13,7 +13,7 @@
   },
 
   "dependencies": {
-    "dashing-core": "~1.0.3"
+    "dashing-core": "~1.0.6"
   },
 
   "devDependencies": {

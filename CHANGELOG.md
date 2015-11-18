@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.5.0] - 2015-11-18
+
+### Changed
+
+ * dist/dash-modal.scss no longer depends on dashing-core
+
 ## [1.4.0] - 2015-11-04
 
 ### Added
