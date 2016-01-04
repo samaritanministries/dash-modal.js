@@ -2,6 +2,14 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [1.5.1] - 2016-01-04
+
+### Changed
+
+ * When showing a modal, set the focus on that modal.
+   This way, the user should be able to see it even if it appears off screen,
+   which is what happens within iframes on iOS devices.
+
 ## [1.5.0] - 2015-11-18
 
 ### Changed

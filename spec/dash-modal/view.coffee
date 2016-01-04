@@ -6,198 +6,154 @@ describe 'DashModal.View', ->
       @$el.html(@options.template)
       @
 
-  view = (template) ->
-    _v =  new TestView({template: template})
-    _v
+  buildView = (template) ->
+    new TestView({template: template})
 
   modalView = (options) ->
-    _m = new DashModal.View
-      view:                 options.view ?= view()
+    modal = new DashModal.View
+      view:                 options.view ?= buildView()
       modalSize:            options.modalSize ?= 'modalSize'
       hasXButton:           options.hasXButton
       onCloseCallback:      options.onCloseCallback
       shouldCloseOnOverlay: options.shouldCloseOnOverlay
       shouldCloseOnEscape:  options.shouldCloseOnEscape
       router:               options.router ?= new Backbone.Router()
-    _m
+    modal
 
-  assertHidden = (_modal) ->
-    expect(_modal.$el).toContainElement('[data-id=modal]')
-    expect(_modal.$el).not.toContainElement('.in')
+  assertHidden = (modal) ->
+    expect(modal.$el).toContainElement('[data-id=modal]')
+    expect(modal.$el).not.toContainElement('.in')
 
-  assertVisible = (_modal) ->
-    expect(_modal.$el).toContainElement('[data-id=modal].in')
+  assertVisible = (modal) ->
+    expect(modal.$el).toContainElement('[data-id=modal].in')
 
-  assertRemoved = (_modal) ->
+  assertRemoved = (modal) ->
     expect($('body')).not.toContainElement('[data-id=modal]')
-
-  it 'renders a view inside of a modal in the global modal-container', ->
-    setFixtures('<div data-id=modal-container></div>')
-    template = '<div>Hello</div>'
-    modalHtml = '<div data-id="view-container"><div><div>Hello</div></div></div>'
-
-    modalView(view: view(template)).show()
-
-    expect($('[data-id=modal-container]').html()).toContain(modalHtml)
-
-  it 'is visible on show', ->
-    template = '<div>Hello</div>'
-    _m = modalView(view: view(template)).show()
-    assertVisible(_m)
 
   it 'can hide itself', ->
     template = '<div>Hello</div>'
-    _m = modalView(view: view(template)).show()
+    modal = modalView(view: buildView(template)).show()
 
-    assertVisible(_m)
-    _m.hide()
-    assertHidden(_m)
+    assertVisible(modal)
+    modal.hide()
+    assertHidden(modal)
 
   it 'can remove itself', ->
     template = '<div>Hello</div>'
-    _m = modalView(view: view(template)).show()
+    modal = modalView(view: buildView(template)).show()
 
-    assertVisible(_m)
-    _m.remove()
-    assertRemoved(_m)
-
-  it 'sets up a listener for hiding on the passed in view', ->
-    template = '<div>Hello</div>'
-    _v = view(template)
-    _m = modalView(view: _v).show()
-
-    assertVisible(_m)
-    _v.trigger('hideModal')
-    assertHidden(_m)
+    assertVisible(modal)
+    modal.remove()
+    assertRemoved(modal)
 
   it 'knows when it is visible', ->
     template = '<div>Hello</div>'
-    _v = view(template)
-    _m = modalView(view: _v).show()
+    view = buildView(template)
+    modal = modalView(view: view).show()
 
-    expect(_m.isVisible()).toBeTruthy()
+    expect(modal.isVisible()).toBeTruthy()
 
   it 'knows when it is not visible', ->
     template = '<div>Hello</div>'
-    _v = view(template)
-    _m = modalView(view: _v).show()
-    _m.hide()
+    view = buildView(template)
+    modal = modalView(view: view).show()
+    modal.hide()
 
-    expect(_m.isVisible()).toBeFalsy()
-    _m.show()
-    expect(_m.isVisible()).toBeTruthy()
+    expect(modal.isVisible()).toBeFalsy()
+    modal.show()
+    expect(modal.isVisible()).toBeTruthy()
 
   it 'hides when the overlay is clicked when shouldCloseOnOverlay is true', ->
-    _m = modalView
+    modal = modalView
       shouldCloseOnOverlay: true
-    _m.show()
+    modal.show()
 
-    assertVisible(_m)
+    assertVisible(modal)
 
-    _m.$('[data-id=dash-overlay]').trigger('click')
+    modal.$('[data-id=dash-overlay]').trigger('click')
 
-    assertHidden(_m)
+    assertHidden(modal)
 
   it 'does NOT hide when overlay is clicked when shouldCloseOnOverlay is undefined', ->
-    _m = modalView
+    modal = modalView
       router: "router"
-    _m.show()
+    modal.show()
 
-    assertVisible(_m)
+    assertVisible(modal)
 
-    _m.$('[data-id=dash-overlay]').trigger('click')
-    assertVisible(_m)
+    modal.$('[data-id=dash-overlay]').trigger('click')
+    assertVisible(modal)
 
   it 'does NOT hide when .modal-inner is clicked', ->
     template = '<div>Hello</div>'
-    _m = modalView(view: view(template)).show()
+    modal = modalView(view: buildView(template)).show()
 
-    assertVisible(_m)
+    assertVisible(modal)
 
-    _m.$('[data-id=modal]').trigger('click')
-    assertVisible(_m)
-
-  it 'renders appends the view modalSize class to modal container', ->
-    template = '<div>Good Bye</div>'
-    _m = modalView(view: view(template), modalSize: 'test-size').show()
-    expect(_m.$('[data-id=modal]')).toBeMatchedBy('.test-size')
-
-  it 'renders the view to a custom modal container', ->
-    setFixtures('<div data-id=custom-modal-container></div>')
-    template = '<div>Hello</div>'
-    modalHtml = '<div data-id="view-container"><div><div>Hello</div></div></div>'
-
-    _m = new DashModal.View
-      view:                 view(template)
-      modalSize:            'modalSize'
-      router:               new Backbone.Router()
-      container:            $('[data-id=custom-modal-container]')
-
-    _m.show()
-
-    expect($('[data-id=custom-modal-container]').html()).toContain(modalHtml)
+    modal.$('[data-id=modal]').trigger('click')
+    assertVisible(modal)
 
   it 'when hasXButton is true, "X" button to click is available to close', ->
-    _m = modalView
+    modal = modalView
       hasXButton: true
-    _m.show()
+    modal.show()
 
-    assertVisible(_m)
+    assertVisible(modal)
 
-    _m.$('[data-id=close]').click()
+    modal.$('[data-id=close]').click()
 
-    assertHidden(_m)
+    assertHidden(modal)
 
   it 'removes "X", when hasXButton is false', ->
-    _m = modalView
+    modal = modalView
       hasXButton: false
-    _m.show()
+    modal.show()
 
-    expect(_m.$('[data-id=close]')).not.toExist()
+    expect(modal.$('[data-id=close]')).not.toExist()
 
   it 'takes an onCloseCallback and calls it on close click', ->
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modalView
+    modal = modalView
       hasXButton: true
       onCloseCallback: callback
-    _m.show()
+    modal.show()
 
-    _m.$('[data-id=close]').click()
+    modal.$('[data-id=close]').click()
 
     expect(callback).toHaveBeenCalled()
 
   it 'also calls it on overlay click', ->
     callback = jasmine.createSpy('afterCloseCallback')
-    _m = modalView
+    modal = modalView
       shouldCloseOnOverlay: true
       onCloseCallback: callback
-    _m.show()
+    modal.show()
 
-    _m.$('[data-id=dash-overlay]').click()
+    modal.$('[data-id=dash-overlay]').click()
 
     expect(callback).toHaveBeenCalled()
 
   it 'does not re-render a view that is already rendered', ->
     setFixtures('<div data-id=modal-container></div>')
     template = '<input data-id="foo" type="text" value="Original"/>'
-    viewWithInput = view(template).render()
+    viewWithInput = buildView(template).render()
     viewWithInput.$("[data-id=foo]").val("Udpated")
 
-    _m = modalView(view: viewWithInput).show()
+    modal = modalView(view: viewWithInput).show()
 
-    assertVisible(_m)
+    assertVisible(modal)
     expect($("[data-id=modal-container]").find("[data-id=foo]").val()).toEqual("Udpated")
 
   it "can be shown a second time", ->
     setFixtures('<div data-id=modal-container></div>')
-    _view = view('Some Content').render()
+    view = buildView('Some Content').render()
 
-    _m = modalView(view: _view)
-    _m.show()
-    _m.hide()
-    _m.show()
+    modal = modalView(view: view)
+    modal.show()
+    modal.hide()
+    modal.show()
 
-    expect(_m.$el).toBeVisible()
+    expect(modal.$el).toBeVisible()
 
   describe "Listening for key events", ->
 
@@ -208,29 +164,78 @@ describe 'DashModal.View', ->
       $(document).trigger(event)
 
     it 'closes on ESC', ->
-      _m = modalView
+      modal = modalView
         shouldCloseOnEscape: true
-      _m.show()
+      modal.show()
 
       pressEscape()
 
-      assertHidden(_m)
+      assertHidden(modal)
 
     it 'removes the listener on hide', ->
-      _m = modalView
+      modal = modalView
         shouldCloseOnEscape: true
-      _m.show()
-      removeListenersSpy = spyOn(_m.escapeKeyUp, "removeListeners")
+      modal.show()
+      removeListenersSpy = spyOn(modal.escapeKeyUp, "removeListeners")
 
       pressEscape()
 
       expect(removeListenersSpy).toHaveBeenCalled()
 
     it 'does not close on escape when configured not to', ->
-      _m = modalView
+      modal = modalView
         shouldCloseOnEscape: false
-      _m.show()
+      modal.show()
 
       pressEscape()
 
-      assertVisible(_m)
+      assertVisible(modal)
+
+  describe 'Showing a modal', ->
+
+    it 'renders a view inside of a modal in the global modal-container', ->
+      setFixtures('<div data-id=modal-container></div>')
+      template = '<div>Hello</div>'
+
+      modal = modalView(view: buildView(template)).show()
+
+      expect($('[data-id=modal-container]').html()).toContain(template)
+      assertVisible(modal)
+
+    it 'sets up a listener for hiding on the passed in view', ->
+      template = '<div>Hello</div>'
+      view = buildView(template)
+      modal = modalView(view: view).show()
+
+      assertVisible(modal)
+      view.trigger('hideModal')
+      assertHidden(modal)
+
+    it 'appends the view modalSize class to modal container', ->
+      template = '<div>Good Bye</div>'
+      modal = modalView(view: buildView(template), modalSize: 'test-size').show()
+      expect(modal.$('[data-id=modal]')).toBeMatchedBy('.test-size')
+
+    it 'renders the view and modal inside a custom modal container when one is passed in', ->
+      setFixtures('<div data-id=custom-modal-container></div>')
+      template = '<div>Hello</div>'
+
+      modal = new DashModal.View
+        view:                 buildView(template)
+        modalSize:            'modalSize'
+        router:               new Backbone.Router()
+        container:            $('[data-id=custom-modal-container]')
+
+      modal.show()
+
+      expect($('[data-id=custom-modal-container]').html()).toContain(template)
+
+    it 'moves focus to the view container to prevent iframe/ios scrolling issue', ->
+      focusSpy = spyOn($.fn, 'focus')
+      template = '<div>Hello</div>'
+
+      modal = modalView(view: buildView(template)).show()
+
+      expect(modal.$('[data-id=view-container]').prop('tabindex')).toBeGreaterThan(0)
+      expect(focusSpy).toHaveBeenCalled()
+
