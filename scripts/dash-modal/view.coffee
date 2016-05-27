@@ -37,7 +37,8 @@ class DashModal.View extends Backbone.View
     @options.onCloseCallback?()
     @$('[data-id=modal]').removeClass('in')
     @$el.hide()
-    $('body').removeClass('prevent-scrolling')
+    unless @options.preventScrollingOnClose
+      $('body').removeClass('prevent-scrolling')
 
   isVisible: ->
     $('body').attr('class') == 'prevent-scrolling'

@@ -17,6 +17,7 @@ describe 'DashModal.View', ->
       onCloseCallback:      options.onCloseCallback
       shouldCloseOnOverlay: options.shouldCloseOnOverlay
       shouldCloseOnEscape:  options.shouldCloseOnEscape
+      preventScrollingOnClose: options.preventScrollingOnClose
       router:               options.router ?= new Backbone.Router()
     modal
 
@@ -154,6 +155,31 @@ describe 'DashModal.View', ->
     modal.show()
 
     expect(modal.$el).toBeVisible()
+
+  it 'adds a class to prevent scrolling when shown', ->
+    template = '<div>Hello</div>'
+    modal = modalView(view: buildView(template)).show()
+
+    expect($('body')).toHaveClass('prevent-scrolling')
+
+  it 'removes the prevent scrolling class when hidden', ->
+    template = '<div>Hello</div>'
+    modal = modalView(view: buildView(template)).show()
+
+    modal.hide()
+
+    expect($('body')).not.toHaveClass('prevent-scrolling')
+
+  it 'does not remove prevent scrolling class with a preventScrollingOnClose option', ->
+    template = '<div>Hello</div>'
+    modal = modalView(
+      view: buildView(template)
+      preventScrollingOnClose: true
+    ).show()
+
+    modal.hide()
+
+    expect($('body')).toHaveClass('prevent-scrolling')
 
   describe "Listening for key events", ->
 
