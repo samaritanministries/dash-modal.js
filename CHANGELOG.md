@@ -6,6 +6,12 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 
 ### Changed
 
+  * added an option to prevent scrolling on close
+
+## [1.5.1] - 2016-01-04
+
+### Changed
+
  * When showing a modal, set the focus on that modal.
    This way, the user should be able to see it even if it appears off screen,
    which is what happens within iframes on iOS devices.
