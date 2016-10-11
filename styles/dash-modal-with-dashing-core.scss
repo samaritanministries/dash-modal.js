@@ -1,10 +1,8 @@
-/* Import dashing-core Libraries
-  ================================================== */
+@font-face {
+  font-family: 'dashing-icons';
+  src:  url('../../scripts/bower_components/dashing/font/dashing-icons.woff') format('woff'),
+        url('../dashing/font/dashing-icons.woff') format('woff');
+}
 
 @import "../scripts/bower_components/dashing/dashing.scss";
 @import 'dash-modal';
-
-@font-face {
-  font-family: 'dashing-icons';
-  src: url('../scripts/bower_components/dashing/font/dashing-icons.woff') format('woff');
-}
