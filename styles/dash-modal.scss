@@ -1,8 +1,6 @@
 $modal-gutter: 1rem !default;
 
-.prevent-scrolling {
-  overflow: hidden;
-}
+.prevent-scrolling { overflow: hidden; }
 
 .dash-overlay {
   background-color: rgba($black, 0.80);
@@ -32,13 +30,8 @@ $modal-gutter: 1rem !default;
     margin: 5rem auto 5rem auto;
   }
 
-  &.modal-small {
-    max-width: 25rem;
-  }
-
-  &.modal-large {
-    max-width: 45rem;
-  }
+  &.modal-small { max-width: 25rem; }
+  &.modal-large { max-width: 45rem; }
 
   .modal-header, .modal-content, .modal-footer {
     text-align: center;
@@ -56,19 +49,14 @@ $modal-gutter: 1rem !default;
     float: right;
     font-size: 1.5rem;
     position: relative;
-    line-height: 0;
     right: 1.5rem;
-    top: 2rem;
+    top: 1.5rem;
     cursor: pointer;
 
-    &:hover {
-      color: $gray-500;
-    }
+    &:hover { color: $gray-500; }
   }
 
-  .modal-header {
-    border-bottom: 2px solid $gray-150;
-  }
+  .modal-header { border-bottom: 2px solid $gray-150; }
 
   .modal-content {
     p {
@@ -79,7 +67,5 @@ $modal-gutter: 1rem !default;
     }
   }
 
-  .modal-footer {
-    background-color: $gray-100;
-  }
+  .modal-footer { background-color: $gray-100; }
 }
