@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [2.0.0] - 2016-10-11
+
+### Changed
+
+  * Updated to Dashing and Dashing icons 1.0.0
+
 ## [1.5.1] - 2016-01-04
 
 ### Changed
