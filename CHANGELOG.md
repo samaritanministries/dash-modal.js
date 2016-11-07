@@ -1,6 +1,13 @@
 # Change Log
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
+## [2.0.1] - 2016-10-11
+
+### Changed
+
+  * Updated to Dashing 1.0.7
+  * Fixed hover state on close icon by adding ::before to the hover state of .modal-close
+  * Changed bower.json to use dash-modal.js instead of min as it was complaining that minified files can't be used
 
 ## [2.0.0] - 2016-10-11
 

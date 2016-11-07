@@ -1,7 +1,7 @@
 {
   "name": "dash-modal.js",
-  "version": "2.0.0",
-  "main": "dist/dash-modal.min.js",
+  "version": "2.0.1",
+  "main": "dist/dash-modal.js",
 
   "homepage": "http://developers.samaritanministries.org/",
   "description": "A modal component for the Dash Framework",
@@ -13,7 +13,7 @@
   },
 
   "dependencies": {
-    "dashing": "~1.0.0"
+    "dashing": "~1.0.7"
   },
 
   "devDependencies": {
