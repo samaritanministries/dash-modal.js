@@ -264,4 +264,3 @@ describe 'DashModal.View', ->
 
       expect(modal.$('[data-id=view-container]').prop('tabindex')).toBeGreaterThan(0)
       expect(focusSpy).toHaveBeenCalled()
-
