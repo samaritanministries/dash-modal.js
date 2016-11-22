@@ -15,11 +15,11 @@ then
 fi
 
 # build
-grunt
+grunt build:dist
 if [ $? -ne 0 ]
 then
   echo 'Did not build correctly.'
-  echo 'Run `grunt` to see errors.'
+  echo 'Run `grunt build:dist` to see errors.'
   exit 1
 fi
 git add dist
