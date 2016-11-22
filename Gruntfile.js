@@ -80,7 +80,9 @@ module.exports = function (grunt) {
             '.tmp/scripts/dash-modal/templates.js',
             '.tmp/scripts/dash-modal/escape_key_up.js',
             '.tmp/scripts/dash-modal/null_escape_key_up.js',
-            '.tmp/scripts/dash-modal/view.js'
+            '.tmp/scripts/dash-modal/view.js',
+            '.tmp/scripts/dash-modal/navigation/modal_stack_view.js',
+            '.tmp/scripts/dash-modal/navigation/modal.js'
           ]
         }
       }
