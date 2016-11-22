@@ -19,7 +19,8 @@
     "testem":               "~0.7.6"
   },
   "scripts": {
-    "test": "testem ci"
+    "test": "testem ci",
+    "testem": "testem"
   },
   "engines": {
     "node": ">=0.8.0"
