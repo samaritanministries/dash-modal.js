@@ -63,7 +63,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         files: {
-            ".tmp/styles/dash-modal-with-dashing-core.css": "styles/dash-modal-with-dashing-core.scss"
+            ".tmp/styles/dash-modal-with-dashing.css": "styles/dash-modal-with-dashing.scss"
         }
       }
     },
