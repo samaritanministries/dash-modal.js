@@ -1,6 +1,15 @@
 # Change Log
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
+
+## [2.0.2] - 2016-11-22
+
+### Added
+
+ * Navigation modal
+    * Allows easy navigation between views inside the modal
+    * Update demo app to include navigation example
+
 ## [2.0.1] - 2016-10-11
 
 ### Changed
