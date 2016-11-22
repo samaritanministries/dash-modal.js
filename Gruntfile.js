@@ -85,6 +85,30 @@ module.exports = function (grunt) {
         }
       }
     },
+
+    watch: {
+      coffeeSrc: {
+        files: [
+          'scripts/dash-modal/**/*.coffee',
+          'scripts/sample_app/**/*.coffee'
+        ],
+        tasks: [ 'coffee:src' ]
+      },
+      css: {
+        files: [
+          'styles/{,*/}*.{scss, css}',
+          'styles/{,*/*/}*.{scss, css}'
+        ],
+        tasks: [ 'sass' ]
+      },
+      jst: {
+        files: [
+          'scripts/dash-modal/**/*.ejs',
+          'scripts/sample_app/**/*.ejs'
+        ],
+        tasks: [ 'jst' ]
+      }
+    }
   });
 
   //********************************
@@ -112,5 +136,10 @@ module.exports = function (grunt) {
                      'coffee:spec'
   ]);
 
-  grunt.registerTask('default', ['build:dist']);
+  grunt.registerTask('startWatcher', [
+    'build:dist',
+    'watch'
+  ]);
+
+  grunt.registerTask('default', ['startWatcher']);
 };

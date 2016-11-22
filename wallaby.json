@@ -1,0 +1,19 @@
+{
+
+  "files": [
+    "scripts/bower_components/jquery/dist/jquery.js",
+    "scripts/bower_components/underscore/underscore.js",
+    "scripts/bower_components/backbone/backbone.js",
+    "scripts/bower_components/jasmine-jquery/lib/jasmine-jquery.js",
+    "scripts/namespace.js",
+    ".tmp/scripts/dash-modal/templates.js",
+    "scripts/dash-modal/escape_key_up.coffee",
+    "scripts/dash-modal/null_escape_key_up.coffee",
+    "scripts/dash-modal/view.coffee"
+  ],
+
+  "tests": [
+    "spec/**/*.coffee"
+  ]
+
+}
