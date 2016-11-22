@@ -7,9 +7,9 @@
     "scripts/bower_components/jasmine-jquery/lib/jasmine-jquery.js",
     "scripts/namespace.js",
     ".tmp/scripts/dash-modal/templates.js",
-    "scripts/dash-modal/escape_key_up.coffee",
-    "scripts/dash-modal/null_escape_key_up.coffee",
-    "scripts/dash-modal/view.coffee"
+    "scripts/dash-modal/**/*.coffee",
+    "spec/fakes/**/*.coffee",
+    "spec/spec_helper.coffee"
   ],
 
   "tests": [
