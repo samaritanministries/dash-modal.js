@@ -2,6 +2,13 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [2.0.3] - 2016-12-1
+
+### Changed
+
+ * Updated to Dashing 1.1.1
+ * Updated the example page styles
+
 ## [2.0.2] - 2016-11-22
 
 ### Added

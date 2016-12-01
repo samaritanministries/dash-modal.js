@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'dashing-icons';
-  src:  url('../../scripts/bower_components/dashing/font/dashing-icons.woff') format('woff'),
-        url('../dashing/font/dashing-icons.woff') format('woff');
+  src: url('https://assets.smchcn.net/dashing-icons.woff') format('woff');
 }
 
-@import "../scripts/bower_components/dashing/dashing.scss";
+@import "../scripts/bower_components/dashing/dashing";
 @import 'dash-modal';

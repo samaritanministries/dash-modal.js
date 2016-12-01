@@ -13,7 +13,7 @@
   },
 
   "dependencies": {
-    "dashing": "~1.0.7"
+    "dashing": "~1.1.1"
   },
 
   "devDependencies": {
