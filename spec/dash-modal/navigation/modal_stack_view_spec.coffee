@@ -1,3 +1,4 @@
+import FakeView from "fakes/view.coffee"
 namespace("Fakes")
 
 class Fakes.ModalPushingView extends Backbone.View
@@ -6,13 +7,13 @@ class Fakes.ModalPushingView extends Backbone.View
     @modalStackView = options.modalStackView
 
   render: ->
-    @modalStackView.push(new Fakes.View())
+    @modalStackView.push(new FakeView())
     @
 
 describe "ModalStackView", ->
 
   fakeView = (options) ->
-    new Fakes.View(options)
+    new FakeView(options)
 
   beforeEach ->
     @firstView = fakeView(content: "View One")

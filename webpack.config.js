@@ -67,7 +67,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      "dash_modal": path.join(PROJECT_ROOT, "scripts", "dash-modal")
+      "dash_modal": path.join(PROJECT_ROOT, "scripts", "dash-modal"),
+      "fakes": path.join(PROJECT_ROOT, "spec", "fakes")
     }, modulesDirectories: [
       path.join(PROJECT_ROOT, "node_modules"),
       path.join(PROJECT_ROOT, "bower_components")

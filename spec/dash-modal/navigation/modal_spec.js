@@ -1,7 +1,9 @@
+import FakeView from "fakes/view.coffee"
+
 describe("Navigation.Modal", () => {
 
   var fakeView = (options) => {
-    return new Fakes.View(options)
+    return new FakeView(options)
   }
 
   var modalContainer
@@ -23,7 +25,7 @@ describe("Navigation.Modal", () => {
 
     it("populates the container with the view", () => {
       navigationModal().push({view: fakeView()})
-      expect(modalContainer.text()).toContain(Fakes.View.content)
+      expect(modalContainer.text()).toContain(FakeView.content)
     })
 
     it("shows the modal", () => {

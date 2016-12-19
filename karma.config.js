@@ -24,8 +24,6 @@ module.exports = function (config) {
       "scripts/sample_app/modal_view.coffee",
       "scripts/sample_app/main.coffee",
       "spec/spec_helper.coffee",
-      "spec/fakes/**/*.coffee",
-      "spec/fakes/**/*.js",
       "spec/dash-modal/navigation/modal_spec.js",
       "spec/dash-modal/navigation/modal_stack_view_spec.coffee",
       "spec/dash-modal/escape_key_up_spec.coffee",
