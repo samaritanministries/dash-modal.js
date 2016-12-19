@@ -8,8 +8,14 @@
     "bower_components/backbone/backbone.js",
     "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
     "scripts/namespace.js",
+    "scripts/dash-modal/escape_key_up.js",
+    "scripts/dash-modal/null_escape_key_up.js",
+    "scripts/dash-modal/navigation/modal_stack_view.js",
+    "scripts/dash-modal/navigation/modal.js",
     ".tmp/scripts/dash-modal/**/*.js",
+    "scripts/dash-modal/view.js",
     ".tmp/spec/**/*.js",
-    ".tmp/spec/spec_helper.js"
+    ".tmp/spec/spec_helper.js",
+    "spec/dash-modal/navigation/modal_spec.js"
   ]
 }

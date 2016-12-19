@@ -10,12 +10,12 @@ module.exports = {
     "./bower_components/backbone/backbone.js",
     "./scripts/namespace.js",
     "./scripts/dash-modal/templates.js",
-    "./scripts/dash-modal/escape_key_up.coffee",
-    "./scripts/dash-modal/null_escape_key_up.coffee",
-    "./scripts/dash-modal/view.coffee",
+    "./scripts/dash-modal/escape_key_up.js",
+    "./scripts/dash-modal/null_escape_key_up.js",
+    "./scripts/dash-modal/view.js",
 
-    "./scripts/dash-modal/navigation/modal_stack_view.coffee",
-    "./scripts/dash-modal/navigation/modal.coffee",
+    "./scripts/dash-modal/navigation/modal_stack_view.js",
+    "./scripts/dash-modal/navigation/modal.js",
 
     "./scripts/sample_app/show_modal.coffee",
     "./scripts/sample_app/push_modal_view.coffee",
