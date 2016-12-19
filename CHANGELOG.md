@@ -8,6 +8,10 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 
   * Updated close button styles
 
+### Fixed
+
+  * Fixed test 
+
 ## [2.0.3] - 2016-12-1
 
 ### Changed
