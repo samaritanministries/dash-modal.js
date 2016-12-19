@@ -1,131 +1,131 @@
-describe("Navigation.Modal", function() {
-//
-  var fakeView = function(options) {
+describe("Navigation.Modal", () => {
+
+  var fakeView = (options) => {
     return new Fakes.View(options)
   }
-//
+
   var modalContainer
 
-  beforeEach(function() {
+  beforeEach(() => {
     fixtures = setFixtures("<div data-id='modal-container'></div>")
-    this.modalContainer = fixtures.find("[data-id=modal-container]")
+    modalContainer = fixtures.find("[data-id=modal-container]")
   })
 
-  var isModalVisible = function() {
+  var isModalVisible = () => {
     return $("[data-id=modal-container]").find("[data-id=modal]").is(":visible")
   }
 
-  var navigationModal = function() {
+  var navigationModal = () => {
     return DashModal.Navigation.Modal
   }
 
-  describe("Showing a modal", function() {
+  describe("Showing a modal", () => {
 
-    it("populates the container with the view", function() {
+    it("populates the container with the view", () => {
       navigationModal().push({view: fakeView()})
-      expect(this.modalContainer.text()).toContain(Fakes.View.content)
+      expect(modalContainer.text()).toContain(Fakes.View.content)
     })
 
-    it("shows the modal", function() {
+    it("shows the modal", () => {
       navigationModal().push({view: fakeView()})
       expect(isModalVisible()).toBeTruthy()
     })
 
   })
 
-  describe("Modal navigation", function() {
+  describe("Modal navigation", () => {
 
     var firstView, secondView
 
-    beforeEach(function() {
-      this.firstView = fakeView({content: "View One"})
-      this.secondView = fakeView({content: "View Two"})
+    beforeEach(() => {
+      firstView = fakeView({content: "View One"})
+      secondView = fakeView({content: "View Two"})
     })
 
-    it("shows the first modal", function() {
-      navigationModal().push({view: this.firstView})
-      expect(this.modalContainer.text()).toContain("View One")
+    it("shows the first modal", () => {
+      navigationModal().push({view: firstView})
+      expect(modalContainer.text()).toContain("View One")
     })
 
-    it("hides the only modal", function() {
-      navigationModal().push({view: this.firstView})
+    it("hides the only modal", () => {
+      navigationModal().push({view: firstView})
 
       navigationModal().pop()
 
-      expect(this.firstView.$el).toBeHidden()
+      expect(firstView.$el).toBeHidden()
     })
 
-    it("returns to the first modal", function() {
-      navigationModal().push({view: this.firstView})
-      navigationModal().push({view: this.secondView})
+    it("returns to the first modal", () => {
+      navigationModal().push({view: firstView})
+      navigationModal().push({view: secondView})
       navigationModal().pop()
 
-      expect(this.modalContainer.text()).toContain("View One")
+      expect(modalContainer.text()).toContain("View One")
     })
 
-    it("retains bound events in a previous modal", function() {
+    it("retains bound events in a previous modal", () => {
       button = $("<button></button>")
       spy = jasmine.createSpy("button click")
       $(button).click(spy)
-      this.firstView.$el.append(button)
+      firstView.$el.append(button)
 
-      navigationModal().push({view: this.firstView})
-      navigationModal().push({view: this.secondView})
+      navigationModal().push({view: firstView})
+      navigationModal().push({view: secondView})
       navigationModal().pop()
 
       button.click()
       expect(spy).toHaveBeenCalled()
     })
 
-    it("handles popping an empty stack", function() {
-      expect(function() {
+    it("handles popping an empty stack", () => {
+      expect(() => {
         navigationModal().pop()
       }).not.toThrow()
     })
 
-    it("hides the modal when popping the last modal", function() {
-      navigationModal().push({view: this.firstView})
+    it("hides the modal when popping the last modal", () => {
+      navigationModal().push({view: firstView})
       navigationModal().pop()
       expect(isModalVisible()).toBeFalsy()
     })
 
-    it("has a current modal with one on the stack", function() {
-      navigationModal().push({view: this.firstView})
+    it("has a current modal with one on the stack", () => {
+      navigationModal().push({view: firstView})
       expect(navigationModal().hasCurrent()).toBeTruthy()
     })
 
-    it("doesn't have a current modal when empty", function() {
+    it("doesn't have a current modal when empty", () => {
       expect(navigationModal().hasCurrent()).toBeFalsy()
     })
 
-    it("has have a current modal with more than one on the stack", function() {
-      navigationModal().push({view: this.firstView})
-      navigationModal().push({view: this.secondView})
+    it("has have a current modal with more than one on the stack", () => {
+      navigationModal().push({view: firstView})
+      navigationModal().push({view: secondView})
       expect(navigationModal().hasCurrent()).toBeTruthy()
     })
 
-    it("doesn't have a current modal after a pop", function() {
-      navigationModal().push({view: this.firstView})
+    it("doesn't have a current modal after a pop", () => {
+      navigationModal().push({view: firstView})
       navigationModal().pop()
       expect(navigationModal().hasCurrent()).toBeFalsy()
     })
 
-    it("empties the current modal", function() {
-      navigationModal().push({view: this.firstView})
+    it("empties the current modal", () => {
+      navigationModal().push({view: firstView})
       navigationModal().empty()
       expect(isModalVisible()).toBeFalsy()
     })
 
-    it("empties the modal container", function() {
-      navigationModal().push({view: this.firstView})
+    it("empties the modal container", () => {
+      navigationModal().push({view: firstView})
       navigationModal().empty()
-      expect(this.modalContainer).toBeEmpty()
+      expect(modalContainer).toBeEmpty()
     })
 
-    it("empties the modal when you close it", function() {
-      navigationModal().push({view: this.firstView, hasXButton: true})
-      navigationModal().push({view: this.secondView, hasXButton: true})
-      var closeButton = this.modalContainer.find("[data-id=close]")
+    it("empties the modal when you close it", () => {
+      navigationModal().push({view: firstView, hasXButton: true})
+      navigationModal().push({view: secondView, hasXButton: true})
+      var closeButton = modalContainer.find("[data-id=close]")
       expect(closeButton).toExist()
       closeButton.click()
 
@@ -134,26 +134,26 @@ describe("Navigation.Modal", function() {
     })
   })
 
-  describe("Getting the modal's state", function() {
+  describe("Getting the modal's state", () => {
 
-    it("has no previous modal when empty", function() {
+    it("has no previous modal when empty", () => {
       expect(navigationModal().hasPrevious()).toBeFalsy()
     })
 
-    it("has no previous modal when there is only one view", function() {
+    it("has no previous modal when there is only one view", () => {
       navigationModal().push({view: fakeView()})
 
       expect(navigationModal().hasPrevious()).toBeFalsy()
     })
 
-    it("has a previous modal when there are at least two views", function() {
+    it("has a previous modal when there are at least two views", () => {
       navigationModal().push({view: fakeView()})
       navigationModal().push({view: fakeView()})
 
       expect(navigationModal().hasPrevious()).toBeTruthy()
     })
 
-    it("has no previous modal when the second to last one has been popped", function() {
+    it("has no previous modal when the second to last one has been popped", () => {
       navigationModal().push({view: fakeView()})
       navigationModal().push({view: fakeView()})
       navigationModal().pop()
@@ -161,7 +161,7 @@ describe("Navigation.Modal", function() {
       expect(navigationModal().hasPrevious()).toBeFalsy()
     })
 
-    it("has no previous modal when the entire stack has been emptied", function() {
+    it("has no previous modal when the entire stack has been emptied", () => {
       navigationModal().push({view: fakeView()})
       navigationModal().push({view: fakeView()})
       navigationModal().empty()
