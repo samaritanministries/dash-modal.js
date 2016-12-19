@@ -1,6 +1,4 @@
-namespace('DashModal')
-
-window.DashModal.View = class extends Backbone.View {
+export default class extends Backbone.View {
 
   initialize(options) {
     this.options = options

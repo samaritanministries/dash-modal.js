@@ -1,4 +1,6 @@
-describe 'DashModal.View', ->
+import DashModalView from "dash_modal/view.js"
+
+describe 'DashModalView', ->
   class TestView extends Backbone.View
     initialize: (@options) ->
 
@@ -10,7 +12,7 @@ describe 'DashModal.View', ->
     new TestView({template: template})
 
   modalView = (options) ->
-    modal = new DashModal.View
+    modal = new DashModalView
       view:                 options.view ?= buildView()
       modalSize:            options.modalSize ?= 'modalSize'
       hasXButton:           options.hasXButton
@@ -246,7 +248,7 @@ describe 'DashModal.View', ->
       setFixtures('<div data-id=custom-modal-container></div>')
       template = '<div>Hello</div>'
 
-      modal = new DashModal.View
+      modal = new DashModalView
         view:                 buildView(template)
         modalSize:            'modalSize'
         router:               new Backbone.Router()

@@ -1,3 +1,5 @@
+import DashModalView from "dash_modal/view.js"
+
 namespace("DashModal.Navigation")
 
 window.DashModal.Navigation.Modal = {
@@ -35,7 +37,7 @@ window.DashModal.Navigation.Modal = {
   _show: function(options) {
     options.onCloseCallback = DashModal.Navigation.Modal._initialize
     if(!DashModal.Navigation.Modal._currentModal) {
-      DashModal.Navigation.Modal._currentModal = new DashModal.View(options).show()
+      DashModal.Navigation.Modal._currentModal = new DashModalView(options).show()
     }
   },
 
