@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [2.0.4] - 2016-12-19
+
+### Changed
+
+  * Updated close button styles
+
 ## [2.0.3] - 2016-12-1
 
 ### Changed
