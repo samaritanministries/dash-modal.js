@@ -5,7 +5,7 @@ const PROJECT_ROOT = path.resolve(__dirname)
 
 module.exports = {
   entry: [
-    "./bower_components/jquery/dist/jquery.js",
+    "./scripts/dash-modal/load_jquery.js",
     "./bower_components/underscore/underscore.js",
     "./bower_components/backbone/backbone.js",
     "./scripts/namespace.js",
@@ -59,8 +59,7 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      _: "underscore",
-      $: "jquery"
+      _: "underscore"
     }),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
