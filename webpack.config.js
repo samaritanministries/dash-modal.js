@@ -4,23 +4,25 @@ var path = require("path")
 const PROJECT_ROOT = path.resolve(__dirname)
 
 module.exports = {
-  entry: [
-    "./scripts/dash-modal/load_jquery.js",
-    "./bower_components/underscore/underscore.js",
-    "./bower_components/backbone/backbone.js",
-    "./scripts/namespace.js",
-    "./scripts/dash-modal/templates.js",
-
-    "./scripts/dash-modal/load.js",
-
-    "./scripts/sample_app/show_modal.js",
-    "./scripts/sample_app/push_modal_view.coffee",
-    "./scripts/sample_app/modal_view.coffee",
-    "./scripts/sample_app/main.coffee",
-  ],
+  entry: {
+    "dist/new-modal.js": [
+      "./scripts/dash-modal/load_jquery.js",
+      "./bower_components/underscore/underscore.js",
+      "./bower_components/backbone/backbone.js",
+      "./scripts/namespace.js",
+      "./scripts/dash-modal/templates.js",
+      "./scripts/dash-modal/load.js",
+    ],
+    ".tmp/sample_app.js": [
+      "./scripts/namespace.js",
+      "./scripts/sample_app/show_modal.js",
+      "./scripts/sample_app/push_modal_view.coffee",
+      "./scripts/sample_app/modal_view.coffee",
+      "./scripts/sample_app/main.coffee",
+    ]
+  },
   output: {
-    path: "./dist",
-    filename: "new-modal.js"
+    filename: "[name]"
   },
   module: {
     loaders:[
