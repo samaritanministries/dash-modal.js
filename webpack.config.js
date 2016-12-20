@@ -10,9 +10,6 @@ module.exports = {
     ],
     ".tmp/sample_app.js": [
       "./scripts/namespace.js",
-      "./scripts/sample_app/show_modal.js",
-      "./scripts/sample_app/push_modal_view.coffee",
-      "./scripts/sample_app/modal_view.coffee",
       "./scripts/sample_app/main.coffee",
     ]
   },
@@ -57,7 +54,8 @@ module.exports = {
   resolve: {
     alias: {
       "dash_modal": path.join(PROJECT_ROOT, "scripts", "dash-modal"),
-      "fakes": path.join(PROJECT_ROOT, "spec", "fakes")
+      "fakes": path.join(PROJECT_ROOT, "spec", "fakes"),
+      "sample_app": path.join(PROJECT_ROOT, "scripts", "sample_app")
     }, modulesDirectories: [
       path.join(PROJECT_ROOT, "node_modules"),
       path.join(PROJECT_ROOT, "bower_components")

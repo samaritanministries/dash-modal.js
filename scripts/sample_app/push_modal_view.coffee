@@ -1,6 +1,4 @@
-namespace("SampleApp")
-
-class SampleApp.PushModalView extends Backbone.View
+export default class PushModalView extends Backbone.View
 
   initialize: (@options) ->
     @depth = @options.depth || 0
@@ -31,7 +29,7 @@ class SampleApp.PushModalView extends Backbone.View
 
   pushModal: ->
     DashModal.Navigation.Modal.push
-      view: new SampleApp.PushModalView(depth: @depth + 1)
+      view: new PushModalView(depth: @depth + 1)
       hasXButton: @options.hasXButton
       shouldCloseOnEscape: @options.shouldCloseOnEscape
       shouldCloseOnOverlay: @options.shouldCloseOnOverlay

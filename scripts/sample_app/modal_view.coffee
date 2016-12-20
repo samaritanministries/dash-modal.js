@@ -1,6 +1,4 @@
-namespace("SampleApp")
-
-class SampleApp.ModalView extends Backbone.View
+export default class extends Backbone.View
 
   render: ->
     @$el.html('

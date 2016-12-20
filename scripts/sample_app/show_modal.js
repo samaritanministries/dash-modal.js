@@ -1,6 +1,6 @@
-namespace("SampleApp")
+import SampleModalView from "sample_app/modal_view.coffee"
 
-window.SampleApp.ShowModal = class extends Backbone.View {
+export default class extends Backbone.View {
 
   initialize(options) {
     this.options = options
@@ -12,7 +12,7 @@ window.SampleApp.ShowModal = class extends Backbone.View {
 
   showModal() {
     modal = new DashModal.View({
-      view: new SampleApp.ModalView(),
+      view: new SampleModalView(),
       onCloseCallback: this.onClose,
       hasXButton: this.options.hasXButton,
       shouldCloseOnEscape: this.options.shouldCloseOnEscape,

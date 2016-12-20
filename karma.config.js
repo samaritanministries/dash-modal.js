@@ -12,9 +12,6 @@ module.exports = function (config) {
       "scripts/dash-modal/load.js",
 
       "scripts/namespace.js",
-      "scripts/sample_app/show_modal.js",
-      "scripts/sample_app/push_modal_view.coffee",
-      "scripts/sample_app/modal_view.coffee",
       "scripts/sample_app/main.coffee",
       "spec/spec_helper.coffee",
       "spec/**/*_spec.js",
