@@ -1,16 +1,6 @@
 import FakeView from "fakes/view.coffee"
+import FakeModalPushingView from "fakes/modal_pushing_view.coffee"
 import ModalStackView from "dash_modal/navigation/modal_stack_view.js"
-
-namespace("Fakes")
-
-class Fakes.ModalPushingView extends Backbone.View
-
-  initialize: (options) ->
-    @modalStackView = options.modalStackView
-
-  render: ->
-    @modalStackView.push(new FakeView())
-    @
 
 describe "ModalStackView", ->
 
@@ -32,8 +22,8 @@ describe "ModalStackView", ->
 
     it "fails when it pushes another view while being pushed", ->
       expect( =>
-        @view.push new Fakes.ModalPushingView(modalStackView: @view)
-      ).toThrow()
+        @view.push new FakeModalPushingView(modalStackView: @view)
+      ).toThrow("Attempting to push a modal view while push is in progress")
 
   describe "Pushing two views", ->
 
