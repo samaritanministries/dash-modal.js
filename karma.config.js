@@ -12,8 +12,6 @@ module.exports = function (config) {
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
       "scripts/namespace.js",
       "scripts/dash-modal/templates.js",
-      "scripts/dash-modal/escape_key_up.js",
-      "scripts/dash-modal/null_escape_key_up.js",
 
       "scripts/dash-modal/load.js",
 

@@ -1,15 +1,20 @@
-describe "DashModal.EscapeKeyUp", ->
+import EscapeKeyUp, {ESCAPE_KEY_CODE} from "dash_modal/escape_key_up.js"
+
+describe "EscapeKeyUp", ->
 
   describe "Listening to key up events", ->
 
     keyUpEvent = ->
-      new DashModal.EscapeKeyUp()
+      new EscapeKeyUp()
 
     pressEscape = () ->
       event = jQuery.Event('keyup')
-      enterKeyCode = DashModal.EscapeKeyUp.ESCAPE_KEY_CODE
+      enterKeyCode = ESCAPE_KEY_CODE
       event.keyCode = enterKeyCode
       $(document).trigger(event)
+
+    it "exposes the key code", ->
+      expect(ESCAPE_KEY_CODE).toEqual(27)
 
     it "triggers the callback on ESCAPE", ->
       _keyUpEvent = keyUpEvent()

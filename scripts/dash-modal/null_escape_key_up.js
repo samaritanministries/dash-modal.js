@@ -1,10 +1,4 @@
-namespace('DashModal')
-
-window.DashModal.NullEscapeKeyUp = class {
-
-  respondWith() {
-  }
-  removeListeners() {
-  }
-
+export default class {
+  respondWith() {}
+  removeListeners() {}
 }

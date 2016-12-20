@@ -1,6 +1,6 @@
-namespace("DashModal")
+export const ESCAPE_KEY_CODE = 27
 
-window.DashModal.EscapeKeyUp = class {
+export default class {
 
   constructor() {
     this._handleKeyup = this.handleKeyup.bind(this)
@@ -16,11 +16,9 @@ window.DashModal.EscapeKeyUp = class {
   }
 
   handleKeyup(event) {
-    if (event.keyCode == DashModal.EscapeKeyUp.ESCAPE_KEY_CODE) {
+    if (event.keyCode == ESCAPE_KEY_CODE) {
       this.callback()
     }
   }
 
 }
-
-DashModal.EscapeKeyUp.ESCAPE_KEY_CODE = 27

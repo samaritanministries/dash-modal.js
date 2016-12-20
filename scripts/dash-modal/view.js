@@ -1,3 +1,6 @@
+import EscapeKeyUp from "dash_modal/escape_key_up.js"
+import NullEscapeKeyUp from "dash_modal/null_escape_key_up.js"
+
 export default class extends Backbone.View {
 
   initialize(options) {
@@ -74,9 +77,9 @@ export default class extends Backbone.View {
 
   buildEscapeKeyUp() {
     if(this.options.shouldCloseOnEscape) {
-      return new DashModal.EscapeKeyUp()
+      return new EscapeKeyUp()
     } else {
-      return new DashModal.NullEscapeKeyUp()
+      return new NullEscapeKeyUp()
     }
   }
 

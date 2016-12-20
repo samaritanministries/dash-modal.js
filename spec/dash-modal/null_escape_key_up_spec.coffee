@@ -1,7 +1,9 @@
-describe "DashModal.NullEscapeKeyUp", ->
+import NullEscapeKeyUp from "dash_modal/null_escape_key_up.js"
+
+describe "NullEscapeKeyUp", ->
 
   nullObject = ->
-    new DashModal.NullEscapeKeyUp()
+    new NullEscapeKeyUp()
 
   it "implements respondWith", ->
     expect(nullObject().respondWith).not.toThrow()
