@@ -23,7 +23,7 @@ module.exports = {
           path.join(PROJECT_ROOT, "scripts"),
           path.join(PROJECT_ROOT, "spec")
         ],
-        loader: "babel-loader",
+        loader: "babel",
         test: /\.js$/
       }, {
         include: [
