@@ -260,10 +260,10 @@ describe 'DashModalView', ->
       expect($('[data-id=custom-modal-container]').html()).toContain(template)
 
     it 'moves focus to the view container to prevent iframe/ios scrolling issue', ->
-      focusSpy = spyOn($.fn, 'focus')
-      template = '<div>Hello</div>'
+      setFixtures("<div data-id='modal-container'></div>")
+      template = "<div>Hello</div>"
 
       modal = modalView(view: buildView(template)).show()
 
-      expect(modal.$('[data-id=view-container]').prop('tabindex')).toBeGreaterThan(0)
-      expect(focusSpy).toHaveBeenCalled()
+      expect(modal.$("[data-id=view-container]").prop("tabindex")).toBeGreaterThan(0)
+      expect(modal.$("[data-id=view-container]")).toBeFocused()

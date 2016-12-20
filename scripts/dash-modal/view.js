@@ -1,12 +1,13 @@
+import Backbone from "backbone"
 import EscapeKeyUp from "dash_modal/escape_key_up.js"
 import NullEscapeKeyUp from "dash_modal/null_escape_key_up.js"
+import template from "dash_modal/template.ejs"
 
 export default class extends Backbone.View {
 
   initialize(options) {
     this.options = options
     this.escapeKeyUp = this.buildEscapeKeyUp()
-    this.template = window.DashModalJST["scripts/dash-modal/template.ejs"]
     this.view = options.view
     this.container = options.container || $("[data-id=modal-container]")
   }
@@ -31,7 +32,7 @@ export default class extends Backbone.View {
 
   show() {
     this.escapeKeyUp.respondWith(this.hide.bind(this))
-    this.$el.html(this.template({ modalSize: this.options.modalSize }))
+    this.$el.html(template({ modalSize: this.options.modalSize }))
     if(!this.options.hasXButton) {
       this.removeCloseButton()
     }

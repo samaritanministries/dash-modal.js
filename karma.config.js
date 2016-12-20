@@ -6,15 +6,12 @@ module.exports = function (config) {
   config.set({
     frameworks: [ "jasmine" ],
     files: [
-      "scripts/dash-modal/load_jquery.js",
-      "bower_components/underscore/underscore.js",
-      "bower_components/backbone/backbone.js",
+      "bower_components/jquery/dist/jquery.js",
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
-      "scripts/namespace.js",
-      "scripts/dash-modal/templates.js",
 
       "scripts/dash-modal/load.js",
 
+      "scripts/namespace.js",
       "scripts/sample_app/show_modal.js",
       "scripts/sample_app/push_modal_view.coffee",
       "scripts/sample_app/modal_view.coffee",
