@@ -14,18 +14,23 @@ then
   exit 1
 fi
 
+# clean
+rm -rf dist/
+rm -rf .tmp/
+
 # build
-grunt build:dist
+npm run webpack
 if [ $? -ne 0 ]
 then
-  echo 'Did not build correctly.'
-  echo 'Run `grunt build:dist` to see errors.'
+  echo 'Did not bundle correctly.'
+  echo 'Run `npm run webpack` to see errors.'
   exit 1
 fi
+cp styles/dash-modal.scss dist/dash-modal.scss
 git add dist
 
 #run tests
-npm test -P -R 'dot'
+npm test
 if [ $? -ne 0 ]
 then
   echo 'Tests failed.'
