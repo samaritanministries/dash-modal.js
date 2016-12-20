@@ -1,5 +1,8 @@
 import DashModalView from "dash_modal/view.js"
 import ModalStackView from "dash_modal/navigation/modal_stack_view.js"
+import namespace from "scripts/namespace.js"
+
+namespace("DashModal.Navigation.Modal")
 
 export default class {
 

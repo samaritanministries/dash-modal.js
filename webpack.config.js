@@ -5,13 +5,8 @@ const PROJECT_ROOT = path.resolve(__dirname)
 
 module.exports = {
   entry: {
-    "dist/new-modal.js": [
-      "./scripts/dash-modal/load.js",
-    ],
-    ".tmp/sample_app.js": [
-      "./scripts/namespace.js",
-      "./scripts/sample_app/main.coffee",
-    ]
+    "dist/new-modal.js": "./scripts/dash-modal/load.js",
+    ".tmp/sample_app.js": "./scripts/sample_app/main.coffee"
   },
   output: {
     filename: "[name]"
@@ -55,7 +50,8 @@ module.exports = {
     alias: {
       "dash_modal": path.join(PROJECT_ROOT, "scripts", "dash-modal"),
       "fakes": path.join(PROJECT_ROOT, "spec", "fakes"),
-      "sample_app": path.join(PROJECT_ROOT, "scripts", "sample_app")
+      "sample_app": path.join(PROJECT_ROOT, "scripts", "sample_app"),
+      "scripts": path.join(PROJECT_ROOT, "scripts")
     }, modulesDirectories: [
       path.join(PROJECT_ROOT, "node_modules"),
       path.join(PROJECT_ROOT, "bower_components")
