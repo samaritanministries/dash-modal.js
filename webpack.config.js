@@ -6,7 +6,8 @@ const PROJECT_ROOT = path.resolve(__dirname)
 module.exports = {
   entry: {
     "dist/new-modal.js": "./scripts/dash-modal/load.js",
-    ".tmp/sample_app.js": "./scripts/sample_app/main.coffee"
+    ".tmp/sample_app.js": "./scripts/sample_app/main.coffee",
+    ".tmp/dash-modal-with-dashing.css": "./styles/dash-modal-with-dashing.scss"
   },
   output: {
     filename: "[name]"
@@ -34,6 +35,11 @@ module.exports = {
         ],
         loader: "ejs-compiled",
         test: /\.ejs$/
+      },
+      {
+        include: path.join(PROJECT_ROOT, "styles"),
+        loader: "style!css!sass",
+        test: /\.scss$/
       }
     ]
   },
