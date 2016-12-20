@@ -1,4 +1,6 @@
 import FakeView from "fakes/view.coffee"
+import ModalStackView from "dash_modal/navigation/modal_stack_view.js"
+
 namespace("Fakes")
 
 class Fakes.ModalPushingView extends Backbone.View
@@ -18,7 +20,7 @@ describe "ModalStackView", ->
   beforeEach ->
     @firstView = fakeView(content: "View One")
     @secondView = fakeView(content: "View Two")
-    @view = new DashModal.Navigation.ModalStackView()
+    @view = new ModalStackView()
     @view.render()
     setFixtures @view.$el
 

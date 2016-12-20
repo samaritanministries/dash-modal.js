@@ -1,49 +1,63 @@
 import DashModalView from "dash_modal/view.js"
+import ModalStackView from "dash_modal/navigation/modal_stack_view.js"
 
-namespace("DashModal.Navigation")
+export default class {
 
-window.DashModal.Navigation.Modal = {
+  static hasPrevious() {
+    return this._wrapperView().childCount() > 1
+  }
 
-  hasPrevious: function() {
-    return DashModal.Navigation.Modal.wrapperView.childCount() > 1
-  },
+  static hasCurrent() {
+    return this._wrapperView().childCount() > 0
+  }
 
-  hasCurrent: function() {
-    return DashModal.Navigation.Modal.wrapperView.childCount() > 0
-  },
+  static push(options) {
+    this._wrapperView().push(options.view)
+    options.view = this._wrapperView()
+    this._show(options)
+  }
 
-  push: function(options) {
-    DashModal.Navigation.Modal.wrapperView.push(options.view)
-    options.view = DashModal.Navigation.Modal.wrapperView
-    DashModal.Navigation.Modal._show(options)
-  },
-
-  pop: function() {
-    DashModal.Navigation.Modal.wrapperView.pop()
-    if(!DashModal.Navigation.Modal.hasCurrent()) {
-      DashModal.Navigation.Modal.empty()
+  static pop() {
+    this._wrapperView().pop()
+    if(!this.hasCurrent()) {
+      this.empty()
     }
-  },
+  }
 
-  empty: function() {
-    if(DashModal.Navigation.Modal._currentModal) {
-      DashModal.Navigation.Modal._currentModal.hide()
+  static empty() {
+    if(this._currentModal()) {
+      this._currentModal().hide()
     }
     $("[data-id=modal-container]").empty()
-    DashModal.Navigation.Modal.wrapperView = new DashModal.Navigation.ModalStackView()
-    DashModal.Navigation.Modal._currentModal = null
-  },
+    this._initialize()
+  }
 
-  _show: function(options) {
-    options.onCloseCallback = DashModal.Navigation.Modal._initialize
-    if(!DashModal.Navigation.Modal._currentModal) {
-      DashModal.Navigation.Modal._currentModal = new DashModalView(options).show()
+  static _show(options) {
+    options.onCloseCallback = this._initialize.bind(this)
+    if(!this._currentModal()) {
+      this._setCurrentModal(new DashModalView(options).show())
     }
-  },
+  }
 
-  _initialize: function() {
-    DashModal.Navigation.Modal.wrapperView = new DashModal.Navigation.ModalStackView()
-    DashModal.Navigation.Modal._currentModal = null
+  static _initialize() {
+    this._setWrapperView(new ModalStackView())
+    this._setCurrentModal(null)
+  }
+
+  static _wrapperView() {
+    return DashModal.Navigation.Modal.wrapperView
+  }
+
+  static _setWrapperView(wrapperView) {
+    DashModal.Navigation.Modal.wrapperView = wrapperView
+  }
+
+  static _currentModal() {
+    return  DashModal.Navigation.Modal.currentModal
+  }
+
+  static _setCurrentModal(currentModal) {
+    DashModal.Navigation.Modal.currentModal = currentModal
   }
 
 }

@@ -1,6 +1,4 @@
-namespace("DashModal.Navigation")
-
-window.DashModal.Navigation.ModalStackView = class extends Backbone.View {
+export default class extends Backbone.View {
 
   initialize() {
     this.isPushInProgress = false

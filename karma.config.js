@@ -15,8 +15,6 @@ module.exports = function (config) {
       "scripts/dash-modal/escape_key_up.js",
       "scripts/dash-modal/null_escape_key_up.js",
 
-      "scripts/dash-modal/navigation/modal_stack_view.js",
-      "scripts/dash-modal/navigation/modal.js",
       "scripts/dash-modal/load.js",
 
       "scripts/sample_app/show_modal.js",

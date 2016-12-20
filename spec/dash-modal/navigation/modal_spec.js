@@ -1,4 +1,5 @@
 import FakeView from "fakes/view.coffee"
+import NavigationModal from "dash_modal/navigation/modal.js"
 
 describe("Navigation.Modal", () => {
 
@@ -18,7 +19,7 @@ describe("Navigation.Modal", () => {
   }
 
   var navigationModal = () => {
-    return DashModal.Navigation.Modal
+    return NavigationModal
   }
 
   describe("Showing a modal", () => {
