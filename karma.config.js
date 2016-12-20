@@ -17,11 +17,8 @@ module.exports = function (config) {
       "scripts/sample_app/modal_view.coffee",
       "scripts/sample_app/main.coffee",
       "spec/spec_helper.coffee",
-      "spec/dash-modal/navigation/modal_spec.js",
-      "spec/dash-modal/navigation/modal_stack_view_spec.coffee",
-      "spec/dash-modal/escape_key_up_spec.coffee",
-      "spec/dash-modal/view_spec.coffee",
-      "spec/dash-modal/null_escape_key_up_spec.coffee"
+      "spec/**/*_spec.js",
+      "spec/**/*_spec.coffee"
     ],
     plugins: [
       "karma-jasmine",
