@@ -19,11 +19,6 @@ module.exports = {
     "./scripts/sample_app/push_modal_view.coffee",
     "./scripts/sample_app/modal_view.coffee",
     "./scripts/sample_app/main.coffee",
-
-    "./scripts/dash-modal/bar.js",
-    "./scripts/dash-modal/foo.js",
-    "./scripts/dash-modal/foo_view.coffee",
-    "./scripts/dash-modal/foo.coffee"
   ],
   output: {
     path: "./dist",
