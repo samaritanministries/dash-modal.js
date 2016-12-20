@@ -1,3 +1,4 @@
+import Backbone from "backbone"
 import EscapeKeyUp, {ESCAPE_KEY_CODE} from "dash_modal/escape_key_up.js"
 import DashModalView from "dash_modal/view.js"
 

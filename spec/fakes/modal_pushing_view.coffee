@@ -1,3 +1,4 @@
+import Backbone from "backbone"
 import FakeView from "fakes/view.coffee"
 
 export default class extends Backbone.View

@@ -1,3 +1,5 @@
+import Backbone from "backbone"
+
 export default class extends Backbone.View
 
   render: ->

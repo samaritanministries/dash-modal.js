@@ -1,3 +1,5 @@
+import Backbone from "backbone"
+
 export default class PushModalView extends Backbone.View
 
   initialize: (@options) ->
