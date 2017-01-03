@@ -1,4 +1,4 @@
-import FakeView from "fakes/view.coffee"
+import FakeView from "fakes/view.js"
 import NavigationModal from "dash_modal/navigation/modal.js"
 
 describe("Navigation.Modal", () => {
@@ -25,8 +25,8 @@ describe("Navigation.Modal", () => {
   describe("Showing a modal", () => {
 
     it("populates the container with the view", () => {
-      navigationModal().push({view: fakeView()})
-      expect(modalContainer.text()).toContain(FakeView.content)
+      navigationModal().push({view: fakeView({content: "Fake View"})})
+      expect(modalContainer.text()).toContain("Fake View")
     })
 
     it("shows the modal", () => {

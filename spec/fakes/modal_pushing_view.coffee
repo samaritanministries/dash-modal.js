@@ -1,5 +1,5 @@
 import Backbone from "backbone"
-import FakeView from "fakes/view.coffee"
+import FakeView from "fakes/view.js"
 
 export default class extends Backbone.View
 

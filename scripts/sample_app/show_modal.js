@@ -1,5 +1,5 @@
 import Backbone from "backbone"
-import SampleModalView from "sample_app/modal_view.coffee"
+import SampleModalView from "sample_app/modal_view.js"
 
 export default class extends Backbone.View {
 

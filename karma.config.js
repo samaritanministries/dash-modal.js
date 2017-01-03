@@ -9,8 +9,8 @@ module.exports = function (config) {
       "bower_components/jquery/dist/jquery.js",
       "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
       "scripts/dash-modal/load.js",
-      "scripts/sample_app/main.coffee",
-      "spec/spec_helper.coffee",
+      "scripts/sample_app/main.js",
+      "spec/spec_helper.js",
       "spec/**/*_spec.js",
       "spec/**/*_spec.coffee"
     ],

@@ -6,7 +6,7 @@ const PROJECT_ROOT = path.resolve(__dirname)
 module.exports = {
   entry: {
     "dist/dash-modal.js": "./scripts/dash-modal/load.js",
-    ".tmp/sample_app.js": "./scripts/sample_app/main.coffee",
+    ".tmp/sample_app.js": "./scripts/sample_app/main.js",
     ".tmp/dash-modal-with-dashing.css": "./styles/dash-modal-with-dashing.scss"
   },
   output: {

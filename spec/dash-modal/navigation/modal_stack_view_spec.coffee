@@ -1,4 +1,4 @@
-import FakeView from "fakes/view.coffee"
+import FakeView from "fakes/view.js"
 import FakeModalPushingView from "fakes/modal_pushing_view.coffee"
 import ModalStackView from "dash_modal/navigation/modal_stack_view.js"
 
