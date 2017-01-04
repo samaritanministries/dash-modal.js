@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [3.0.0] - 2016-01-04
+
+### Changed
+
+  * Convert project to use ES6 and Webpack
+
 ## [2.0.4] - 2016-12-19
 
 ### Changed
@@ -10,7 +16,7 @@ This changelog was started using [these conventions](http://keepachangelog.com/)
 
 ### Fixed
 
-  * Fixed test 
+  * Fixed test
 
 ## [2.0.3] - 2016-12-1
 
