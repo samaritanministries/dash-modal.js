@@ -11,8 +11,8 @@ module.exports = function (config) {
       "scripts/dash-modal/load.js",
       "scripts/sample_app/main.js",
       "spec/spec_helper.js",
-      "spec/**/*_spec.js",
-      "spec/**/*_spec.coffee"
+      {pattern: "spec/**/*_spec.js", watched: false, included: true, served: true},
+      {pattern: "spec/**/*_spec.coffee", watched: false, included: true, served: true}
     ],
     plugins: [
       "karma-jasmine",
@@ -33,6 +33,12 @@ module.exports = function (config) {
     phantomjsLauncher: {
       exitOnResourceError: true
     },
-    webpack: webpackConfig
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true,
+      stats: {
+        chunks: false
+      }
+    },
   });
 };
