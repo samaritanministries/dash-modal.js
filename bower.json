@@ -1,6 +1,6 @@
 {
   "name": "dash-modal.js",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "main": "dist/dash-modal.js",
 
   "homepage": "http://developers.samaritanministries.org/",
@@ -13,7 +13,7 @@
   },
 
   "dependencies": {
-    "backbone" : "~1.1.2",
+    "backbone" : "~1.3.3",
     "dashing": "~1.1.1"
   },
 

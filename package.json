@@ -5,23 +5,31 @@
     "type": "git",
     "url": "git://git@github.com:samaritanministries/dash-modal.js.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "webpack": "^1.14.0"
+  },
   "devDependencies": {
-    "grunt":                "~0.4.1",
-    "grunt-contrib-clean":  "~0.6.0",
-    "grunt-contrib-coffee": "~0.13.0",
-    "grunt-contrib-copy":   "~0.7.0",
-    "grunt-contrib-jst":    "~0.6.0",
-    "grunt-contrib-watch": "~0.5.2",
-    "grunt-sass":           "~1.1.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "load-grunt-tasks":     "~0.1.0",
-    "phantomjs":            "~1.9.16",
-    "testem":               "~0.7.6"
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015-nostrict": "^6.6.2",
+    "css-loader": "^0.26.1",
+    "ejs-compiled-loader": "^1.1.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.8.0",
+    "node-sass": "^4.1.1",
+    "phantomjs": "~1.9.16",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "testem": "~0.7.6"
   },
   "scripts": {
-    "test": "testem ci",
-    "testem": "testem"
+    "karma": "karma start karma.config.js",
+    "test": "karma start karma.config.js --single-run=true",
+    "webpack": "webpack --config webpack.config.js"
   },
   "engines": {
     "node": ">=0.8.0"
