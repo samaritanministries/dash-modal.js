@@ -26,13 +26,6 @@ module.exports = {
           path.join(PROJECT_ROOT, "scripts"),
           path.join(PROJECT_ROOT, "spec")
         ],
-        loader: "babel!coffee",
-        test: /\.coffee$/
-      }, {
-        include: [
-          path.join(PROJECT_ROOT, "scripts"),
-          path.join(PROJECT_ROOT, "spec")
-        ],
         loader: "ejs-compiled",
         test: /\.ejs$/
       },

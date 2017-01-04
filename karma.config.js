@@ -11,8 +11,7 @@ module.exports = function (config) {
       "scripts/dash-modal/load.js",
       "scripts/sample_app/main.js",
       "spec/spec_helper.js",
-      {pattern: "spec/**/*_spec.js", watched: false, included: true, served: true},
-      {pattern: "spec/**/*_spec.coffee", watched: false, included: true, served: true}
+      {pattern: "spec/**/*_spec.js", watched: false, included: true, served: true}
     ],
     plugins: [
       "karma-jasmine",
@@ -23,9 +22,7 @@ module.exports = function (config) {
     browsers: [ "PhantomJS" ],
     preprocessors: {
       "spec/**/*.js": ["webpack"],
-      "scripts/**/*.js": ["webpack"],
-      "spec/**/*.coffee": ["webpack"],
-      "scripts/**/*.coffee": ["webpack"]
+      "scripts/**/*.js": ["webpack"]
     },
     logLevel: config.LOG_INFO,
     reporters: ["spec"],
