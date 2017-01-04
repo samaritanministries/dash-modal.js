@@ -1,7 +1,7 @@
 # Dash Modal
 
 [![Build Status](https://travis-ci.org/samaritanministries/dash-modal.js.svg?branch=master)](https://travis-ci.org/samaritanministries/dash-modal.js)
-version badge
+[![Dash-Modal Version](https://img.shields.io/badge/Version-3.0.0-green.svg)]()
 
 This is the modal for the Dash platform. It provides a basic modal as well as a Navigation Modal. Play around the sample app for examples.
 
