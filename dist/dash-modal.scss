@@ -15,6 +15,10 @@ $modal-gutter: 1rem !default;
   z-index: 1000;
 }
 
+&.is-locked {
+  overflow: hidden;
+}
+
 .dash-modal {
   background-color: $white;
   border-radius: 15px;

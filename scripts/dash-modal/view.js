@@ -15,7 +15,7 @@ export default class extends Backbone.View {
   events() {
     return {
       "click [data-id=modal]"           : "stopPropagation",
-      "click [data-id=dash-overlay]"    : "outerCountainerClick",
+      "click [data-id=dash-overlay]"    : "outerContainerClick",
       "click [data-id=close]"           : "hide"
     }
   }
@@ -24,7 +24,7 @@ export default class extends Backbone.View {
     event.stopPropagation()
   }
 
-  outerCountainerClick() {
+  outerContainerClick() {
     if(this.options.shouldCloseOnOverlay) {
       this.hide()
     }
@@ -35,6 +35,9 @@ export default class extends Backbone.View {
     this.$el.html(template({ modalSize: this.options.modalSize }))
     if(!this.options.hasXButton) {
       this.removeCloseButton()
+    }
+    if(this.options.isLocked) {
+      this.$('[data-id=dash-overlay]').addClass('is-locked')
     }
     this.listenTo(this.view, "hideModal", this.hide.bind(this))
     this.$("[data-id=view-container]").html(this.modalHtml())

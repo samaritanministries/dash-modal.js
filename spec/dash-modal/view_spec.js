@@ -27,6 +27,7 @@ describe("DashModalView", () => {
       shouldCloseOnOverlay: options.shouldCloseOnOverlay,
       shouldCloseOnEscape:  options.shouldCloseOnEscape,
       preventScrollingOnClose: options.preventScrollingOnClose,
+      isLocked: options.isLocked,
       router: options.router || new Backbone.Router()
     })
   }
@@ -207,6 +208,16 @@ describe("DashModalView", () => {
     modal.hide()
 
     expect($("body")).toHaveClass("prevent-scrolling")
+  })
+
+  it("it adds a is-locked class to the dash overlay with isLocked option", () => {
+    var template = "<div>Hello</div>"
+    var modal = modalView({
+      isLocked: true,
+      view: buildView(template)
+    }).show()
+
+    expect(modal.$('[data-id=dash-overlay]')).toHaveClass('is-locked')
   })
 
   describe("Listening for key events", () => {
