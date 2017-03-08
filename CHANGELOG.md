@@ -2,7 +2,13 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
-## [3.0.0] - 2016-01-04
+## [3.0.1] - 2017-03-08
+
+### Changed
+
+  * Add lock capability to modal component
+
+## [3.0.0] - 2017-01-04
 
 ### Changed
 

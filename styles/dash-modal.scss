@@ -13,10 +13,9 @@ $modal-gutter: 1rem !default;
   bottom: 0;
   left: 0;
   z-index: 1000;
-}
-
-&.is-locked {
-  overflow: hidden;
+  &.is-locked {
+    overflow: hidden;
+  }
 }
 
 .dash-modal {
