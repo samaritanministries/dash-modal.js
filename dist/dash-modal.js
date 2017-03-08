@@ -44,11 +44,11 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _view = __webpack_require__(8);
+	var _view = __webpack_require__(11);
 
 	var _view2 = _interopRequireDefault(_view);
 
-	var _modal = __webpack_require__(12);
+	var _modal = __webpack_require__(15);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -62,7 +62,10 @@
 	};
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10288,8 +10291,8 @@
 
 
 /***/ },
-/* 2 */,
-/* 3 */
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {//     Backbone.js 1.3.3
@@ -10308,7 +10311,7 @@
 
 	  // Set up Backbone appropriately for the environment. Start with AMD.
 	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4), __webpack_require__(1), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(7), __webpack_require__(4), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
 	      // Export global even in AMD case in case this script is loaded with
 	      // others that may still expect a global Backbone.
 	      root.Backbone = factory(root, exports, _, $);
@@ -12216,7 +12219,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 4 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -13770,10 +13773,10 @@
 
 
 /***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(exports, "__esModule", {
@@ -13782,19 +13785,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _backbone = __webpack_require__(3);
+	var _backbone = __webpack_require__(6);
 
 	var _backbone2 = _interopRequireDefault(_backbone);
 
-	var _escape_key_up = __webpack_require__(9);
+	var _escape_key_up = __webpack_require__(12);
 
 	var _escape_key_up2 = _interopRequireDefault(_escape_key_up);
 
-	var _null_escape_key_up = __webpack_require__(10);
+	var _null_escape_key_up = __webpack_require__(13);
 
 	var _null_escape_key_up2 = _interopRequireDefault(_null_escape_key_up);
 
-	var _template = __webpack_require__(11);
+	var _template = __webpack_require__(14);
 
 	var _template2 = _interopRequireDefault(_template);
 
@@ -13913,10 +13916,10 @@
 	}(_backbone2.default.View);
 
 	exports.default = _class;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 9 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(exports, "__esModule", {
@@ -13960,10 +13963,10 @@
 	}();
 
 	exports.default = _class;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 10 */
+/* 13 */
 /***/ function(module, exports) {
 
 	Object.defineProperty(exports, "__esModule", {
@@ -13993,7 +13996,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 11 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = function anonymous(locals, filters, escape, rethrow) {
@@ -14029,7 +14032,7 @@
 	}
 
 /***/ },
-/* 12 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(exports, "__esModule", {
@@ -14038,15 +14041,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _view = __webpack_require__(8);
+	var _view = __webpack_require__(11);
 
 	var _view2 = _interopRequireDefault(_view);
 
-	var _modal_stack_view = __webpack_require__(13);
+	var _modal_stack_view = __webpack_require__(16);
 
 	var _modal_stack_view2 = _interopRequireDefault(_modal_stack_view);
 
-	var _namespace = __webpack_require__(14);
+	var _namespace = __webpack_require__(17);
 
 	var _namespace2 = _interopRequireDefault(_namespace);
 
@@ -14135,10 +14138,10 @@
 	}();
 
 	exports.default = _class;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 13 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, "__esModule", {
@@ -14147,7 +14150,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _backbone = __webpack_require__(3);
+	var _backbone = __webpack_require__(6);
 
 	var _backbone2 = _interopRequireDefault(_backbone);
 
@@ -14216,7 +14219,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 14 */
+/* 17 */
 /***/ function(module, exports) {
 
 	Object.defineProperty(exports, "__esModule", {
