@@ -36,9 +36,6 @@ export default class extends Backbone.View {
     if(!this.options.hasXButton) {
       this.removeCloseButton()
     }
-    if(this.options.isLocked) {
-      this.$('[data-id=dash-overlay]').addClass('is-locked')
-    }
     this.listenTo(this.view, "hideModal", this.hide.bind(this))
     this.$("[data-id=view-container]").html(this.modalHtml())
     $("body").addClass("prevent-scrolling")
@@ -49,6 +46,14 @@ export default class extends Backbone.View {
       this.view.trigger("showModalComplete")
     }.bind(this))
     return this
+  }
+
+  addLock() {
+    this.$('[data-id=dash-overlay]').addClass('is-locked')
+  }
+
+  removeLock() {
+    this.$('[data-id=dash-overlay]').removeClass('is-locked')
   }
 
   hide() {
