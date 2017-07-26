@@ -2,6 +2,12 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [3.0.2] - 2017-07-26
+
+### Fixed
+
+  * Fixed dashing-icon--close color
+
 ## [3.0.1] - 2017-03-08
 
 ### Changed
