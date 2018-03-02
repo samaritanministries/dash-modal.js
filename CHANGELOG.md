@@ -2,6 +2,13 @@
 
 This changelog was started using [these conventions](http://keepachangelog.com/).
 
+## [3.0.3] - 2018-03-02
+
+### Fixed
+
+  * Fixed header text by making it center
+  * Fixed alignment of modal close button
+
 ## [3.0.2] - 2017-07-26
 
 ### Fixed
