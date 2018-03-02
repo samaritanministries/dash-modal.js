@@ -33,7 +33,7 @@ For more documentation, visit our [documentation site](http://developers.samarit
 Your HTML template should include the following HTML structure:
 
 ```
-  <div class="modal-header"><h2>This is a modal title</h2></div>
+  <div class="modal-header"><h3>This is a modal title</h3></div>
   <div class="modal-content"><p>Some really cool modal content!</p></div>
   <div class="modal-footer"><button>Do stuff</button></div>
 ```
