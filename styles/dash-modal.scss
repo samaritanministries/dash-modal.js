@@ -52,9 +52,10 @@ $modal-gutter: 1rem !default;
     float: right;
     font-size: 1.5rem;
     position: relative;
-    right: 1rem;
-    top: 1rem;
+    right: .7rem;
+    top: .7rem;
     cursor: pointer;
+    margin-left: -2rem;
   }
 
   .modal-header { border-bottom: 2px solid $gray-150; }
